@@ -1,5 +1,5 @@
-Grapevine - Social Media Aggregator
-===================================
+Grapevine - Message Aggregator
+==============================
 
 ## DESCRIPTION
 
