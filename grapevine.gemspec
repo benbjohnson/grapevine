@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency('data_mapper', '~> 1.0.2')
   s.add_dependency('dm-tags', '~> 1.0.2')
   s.add_dependency('dm-sqlite-adapter', '~> 1.0.2')
-  #s.add_dependency('topsy', '~> 0.3.2')
+  s.add_dependency('topsy', '~> 0.3.3')
   s.add_dependency('octopi', '~> 0.4.0')
 
   s.add_development_dependency('rspec', '~> 2.4.0')
