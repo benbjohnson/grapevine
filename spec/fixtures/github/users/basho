@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Thu, 06 Jan 2011 20:38:16 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "057d9941e52f7230977089c02f115bcb"
+X-RateLimit-Remaining: 58
+X-Runtime: 19ms
+Content-Length: 387
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+user: 
+  gravatar_id: ce5141b78d2fe237e8bfba49d6aff405
+  company: 
+  name: Basho Technologies
+  created_at: "2010-01-04T11:05:19-08:00"
+  location: Cambridge, MA
+  public_repo_count: 29
+  public_gist_count: 0
+  blog: http://basho.com
+  following_count: 0
+  billing_email: dev@basho.com
+  id: 176293
+  type: Organization
+  permission: 
+  followers_count: 61
+  login: basho
+  email: 

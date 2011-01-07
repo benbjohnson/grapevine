@@ -1,0 +1,85 @@
+HTTP/1.1 200 OK
+Cache-Control: max-age=5
+Content-Type: application/json; charset=utf-8
+Expires: Fri, 07 Jan 2011 04:09:55 GMT
+Last-Modified: Fri, 07 Jan 2011 04:09:50 GMT
+Server: lighttpd/1.4.26
+Content-Length: 12607
+Date: Fri, 07 Jan 2011 04:09:52 GMT
+X-Varnish: 645797005 645796834
+Age: 2
+Via: 1.1 varnish
+X-Served-By: ps163
+X-Cache: HIT
+X-Cache-Hits: 1
+X-RateLimit-Limit: 10000
+X-RateLimit-Remaining: 9997
+X-RateLimit-Reset: 1294376899
+Connection: close
+
+{
+    "request": {
+        "parameters": {
+            "window": "hour",
+            "page": "1",
+            "url": "https://github.com/ginatrapani/ThinkUp/wiki/Installing-ThinkUp-on-Amazon-EC2",
+            "perpage": "100"
+        },
+        "response_type": "json",
+        "resource": "trackbacks",
+        "url": "http://otter.topsy.com/trackbacks.json?page=1&perpage=100&url=https%3A%2F%2Fgithub.com%2Fginatrapani%2FThinkUp%2Fwiki%2FInstalling-ThinkUp-on-Amazon-EC2&window=hour"
+    },
+    "response": {
+        "page": 1,
+        "trackback_total": 3,
+        "total": 3,
+        "perpage": 100,
+        "last_offset": 3,
+        "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fginatrapani%2FThinkUp%2Fwiki%2FInstalling-ThinkUp-on-Amazon-EC2",
+        "hidden": 0,
+        "list": [{
+            "permalink_url": "http://twitter.com/vivaceuk/status/23031898938802176",
+            "date": 1294326207,
+            "content": "RT @thinkupapp: Get your own ThinkUp instance up and running for free/cheap on Amazon EC2 in 10 minutes. Here&#39;s how: http://bit.ly/edHUGZ",
+            "date_alpha": "13 hours ago",
+            "author": {
+                "name": "Matthew Atkins",
+                "url": "http://twitter.com/vivaceuk",
+                "nick": "vivaceuk",
+                "topsy_author_url": "http://topsy.com/twitter/vivaceuk?utm_source=otter",
+                "photo_url": "http://a3.twimg.com/profile_images/504551651/twitterProfilePhoto_normal.jpg"
+            },
+            "type": "tweet"
+        },
+        {
+            "permalink_url": "http://twitter.com/pvantees/status/22955482826145792",
+            "date": 1294307988,
+            "content": "RT @thinkupapp: Get your own ThinkUp instance up and running for free/cheap on Amazon EC2 in 10 minutes. http://bit.ly/edHUGZ @myen",
+            "date_alpha": "18 hours ago",
+            "author": {
+                "name": "Peter van Teeseling",
+                "url": "http://twitter.com/pvantees",
+                "nick": "pvantees",
+                "topsy_author_url": "http://topsy.com/twitter/pvantees?utm_source=otter",
+                "photo_url": "http://a0.twimg.com/profile_images/780708510/pvantees-avatar_normal.jpg",
+                "influence_level": 10
+            },
+            "type": "tweet"
+        },
+        {
+            "permalink_url": "http://twitter.com/derwebarchitekt/status/22935307057889280",
+            "date": 1294303177,
+            "content": "Installing ThinkUp on Amazon EC2 http://bit.ly/e12MSr #tutorial",
+            "date_alpha": "20 hours ago",
+            "author": {
+                "name": "Kai Thrun",
+                "url": "http://twitter.com/derwebarchitekt",
+                "nick": "derwebarchitekt",
+                "topsy_author_url": "http://topsy.com/twitter/derwebarchitekt?utm_source=otter",
+                "photo_url": "http://a2.twimg.com/profile_images/1164652940/kai_thrun_normal.jpg"
+            },
+            "type": "tweet"
+        }],
+        "offset": 0
+    }
+}

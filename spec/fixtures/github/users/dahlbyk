@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Thu, 06 Jan 2011 21:29:52 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "8d9415c388c8f470f7a11de65999a01e"
+X-RateLimit-Remaining: 58
+X-Runtime: 13ms
+Content-Length: 379
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+user: 
+  gravatar_id: 43a5676a300a54ffdc903e49a2db9060
+  company: 
+  name: Keith Dahlby
+  created_at: 2009-10-01 19:13:10 -07:00
+  location: Cedar Rapids, IA
+  public_repo_count: 14
+  public_gist_count: 5
+  blog: http://solutionizing.net/
+  following_count: 10
+  id: 133987
+  type: User
+  permission: 
+  followers_count: 12
+  login: dahlbyk
+  email: keith@solutionizing.net

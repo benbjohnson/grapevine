@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Thu, 06 Jan 2011 21:26:13 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "43769610cb148b3a1b046e6bcbfa817c"
+X-RateLimit-Remaining: 59
+X-Runtime: 18ms
+Content-Length: 364
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+user: 
+  gravatar_id: 44230311a3dcd684b6c5f81bf2ec9f60
+  company: Expert Labs
+  name: Gina Trapani
+  created_at: 2009-03-05 17:33:05 -08:00
+  location: San Diego, CA
+  public_repo_count: 8
+  public_gist_count: 5
+  blog: http://ginatrapani.org
+  following_count: 29
+  id: 60632
+  type: User
+  permission: 
+  followers_count: 411
+  login: ginatrapani
+  email: 

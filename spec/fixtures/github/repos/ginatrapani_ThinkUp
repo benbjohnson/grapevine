@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Thu, 06 Jan 2011 21:27:22 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "066c8000804c2c21d692665ab89b373f"
+X-RateLimit-Remaining: 59
+X-Runtime: 14ms
+Content-Length: 642
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+repository: 
+  :has_wiki: true
+  :pushed_at: !timestamp 
+    at: "2010-12-29 14:33:57.407040 -08:00"
+    "@marshal_with_utc_coercion": false
+  :url: https://github.com/ginatrapani/ThinkUp
+  :homepage: http://thinkupapp.com
+  :open_issues: 117
+  :created_at: !timestamp 
+    at: "2009-06-06 12:27:42 -07:00"
+    "@marshal_with_utc_coercion": false
+  :fork: false
+  :watchers: 715
+  :forks: 129
+  :has_issues: true
+  :size: 14882
+  :private: false
+  :name: ThinkUp
+  :owner: ginatrapani
+  :has_downloads: true
+  :description: ThinkUp captures and filters conversations with your social circle on Twitter, Facebook, and eventually, beyond.

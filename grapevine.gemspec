@@ -15,13 +15,16 @@ Gem::Specification.new do |s|
   #s.executables = ['grapevine']
   #s.default_executable = 'grapevine'
 
-  #s.add_dependency('topsy', '~> 0.3.2')
   s.add_dependency('OptionParser', '~> 0.5.1')
   s.add_dependency('daemons', '~> 1.1.0')
+  s.add_dependency('data_mapper', '~> 1.0.2')
+  s.add_dependency('dm-tags', '~> 1.0.2')
+  s.add_dependency('dm-sqlite-adapter', '~> 1.0.2')
+  #s.add_dependency('topsy', '~> 0.3.2')
+  s.add_dependency('octopi', '~> 0.4.0')
 
-  s.add_development_dependency('rake', '~> 0.8.3')
-  s.add_development_dependency('minitest', '~> 1.7.0')
-  s.add_development_dependency('mocha', '~> 0.9.8')
+  s.add_development_dependency('rspec', '~> 2.4.0')
+  s.add_development_dependency('fakeweb', '~> 1.3.0')
 
   s.test_files   = Dir.glob('test/**/*')
   s.files        = Dir.glob('lib/**/*') + %w(README.md)

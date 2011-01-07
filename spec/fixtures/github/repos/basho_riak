@@ -1,0 +1,36 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Thu, 06 Jan 2011 20:42:20 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "08585727aa1228bb96c53c47c9d28bd8"
+X-RateLimit-Remaining: 59
+X-Runtime: 10ms
+Content-Length: 603
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+repository: 
+  :has_wiki: false
+  :pushed_at: !timestamp 
+    at: "2011-01-05 18:11:47.833316 -08:00"
+    "@marshal_with_utc_coercion": false
+  :url: https://github.com/basho/riak
+  :homepage: http://wiki.basho.com/display/RIAK
+  :open_issues: 0
+  :created_at: !timestamp 
+    at: "2010-04-16 07:51:16 -07:00"
+    "@marshal_with_utc_coercion": false
+  :fork: false
+  :watchers: 268
+  :forks: 23
+  :has_issues: false
+  :organization: basho
+  :size: 796
+  :private: false
+  :name: riak
+  :owner: basho
+  :has_downloads: true
+  :description: Riak is a decentralized datastore from Basho Technologies.
