@@ -47,6 +47,7 @@ module Grapevine
       while (page-1) * perpage < total
         # Find trackbacks
         results = Topsy.trackbacks(url, :window => :hour, :page => page, :perpage => perpage)
+        perpage = results.perpage
         total = results.total
         
         results.list.each do |item|
@@ -64,6 +65,8 @@ module Grapevine
             :created_at => Time.at(item.date)
           )
         end
+
+        page += 1
       end
     end
       

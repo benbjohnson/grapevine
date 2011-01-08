@@ -20,8 +20,8 @@ describe Grapevine::TwitterGitHubLoader do
     FakeWeb.register_uri(:get, "http://otter.topsy.com/search.json?page=#{page}&perpage=#{perpage}&window=h&q=site%3Agithub.com", :response => IO.read("#{@fixtures_dir}/topsy/search/#{filename}"))
   end
   
-  def register_topsy_trackback_uri(url, filename, page=1)
-    FakeWeb.register_uri(:get, "http://otter.topsy.com/trackbacks.json?perpage=100&window=hour&url=#{CGI.escape(url)}&page=#{page}", :response => IO.read("#{@fixtures_dir}/topsy/trackbacks/#{filename}"))
+  def register_topsy_trackback_uri(url, filename, page=1, perpage=100)
+    FakeWeb.register_uri(:get, "http://otter.topsy.com/trackbacks.json?perpage=#{perpage}&window=hour&url=#{CGI.escape(url)}&page=#{page}", :response => IO.read("#{@fixtures_dir}/topsy/trackbacks/#{filename}"))
   end
   
   def register_github_uri(username, repo_name)
@@ -87,6 +87,20 @@ describe Grapevine::TwitterGitHubLoader do
     message.source_id.should == '23031898938802176'
     message.author.should == 'vivaceuk'
     message.created_at.to_s.should == '2011-01-06T08:03:27-07:00'
+  end
+
+  it 'should support trackback paging' do
+    register_topsy_search_uri('site_github_single')
+    register_topsy_trackback_uri('https://github.com/ginatrapani/ThinkUp/wiki/Installing-ThinkUp-on-Amazon-EC2', 'ginatrapani_ThinkUp_page1', 1)
+    register_topsy_trackback_uri('https://github.com/ginatrapani/ThinkUp/wiki/Installing-ThinkUp-on-Amazon-EC2', 'ginatrapani_ThinkUp_page2', 2, 2)
+    register_github_uri('ginatrapani', 'ThinkUp')
+    
+    @loader.load()
+  
+    Grapevine::Message.all.length.should == 3
+    Grapevine::Message.all(:source_id => '23031898938802176').length.should == 1
+    Grapevine::Message.all(:source_id => '22955482826145792').length.should == 1
+    Grapevine::Message.all(:source_id => '22935307057889280').length.should == 1
   end
 
   it 'should ignore non-project links on GitHub' do
