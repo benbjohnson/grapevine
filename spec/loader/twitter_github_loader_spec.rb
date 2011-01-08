@@ -16,8 +16,8 @@ describe Grapevine::TwitterGitHubLoader do
       FakeWeb.clean_registry
   end
 
-  def register_topsy_search_uri(filename, page=1)
-    FakeWeb.register_uri(:get, "http://otter.topsy.com/search.json?page=#{page}&perpage=100&window=h&q=site%3Agithub.com", :response => IO.read("#{@fixtures_dir}/topsy/search/#{filename}"))
+  def register_topsy_search_uri(filename, page=1, perpage=100)
+    FakeWeb.register_uri(:get, "http://otter.topsy.com/search.json?page=#{page}&perpage=#{perpage}&window=h&q=site%3Agithub.com", :response => IO.read("#{@fixtures_dir}/topsy/search/#{filename}"))
   end
   
   def register_topsy_trackback_uri(url, filename, page=1)
@@ -45,6 +45,21 @@ describe Grapevine::TwitterGitHubLoader do
     topic = Grapevine::Topic.first
     topic.name.should == 'ThinkUp'
     topic.url.should == 'https://github.com/ginatrapani/ThinkUp'
+  end
+
+  it 'should support search paging' do
+    register_topsy_search_uri('site_github_page1', 1, 100)
+    register_topsy_search_uri('site_github_page2', 2, 2)
+    register_topsy_trackback_uri('https://github.com/ginatrapani/ThinkUp/wiki/Installing-ThinkUp-on-Amazon-EC2', 'ginatrapani_ThinkUp')
+    register_topsy_trackback_uri('https://github.com/basho/riak/raw/riak-0.14.0/releasenotes/riak-0.14.0.txt', 'basho_riak')
+    register_github_uri('basho', 'riak')
+    register_github_uri('ginatrapani', 'ThinkUp')
+    
+    @loader.load()
+  
+    Grapevine::Topic.all.length.should == 2
+    Grapevine::Topic.first(:name => 'ThinkUp').should_not be_nil
+    Grapevine::Topic.first(:name => 'riak').should_not be_nil
   end
 
   it 'should tag topic with languages' do

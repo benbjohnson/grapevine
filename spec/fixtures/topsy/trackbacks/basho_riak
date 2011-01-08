@@ -1,0 +1,70 @@
+HTTP/1.1 200 OK
+Cache-Control: max-age=5
+Content-Type: application/json; charset=utf-8
+Expires: Sat, 08 Jan 2011 20:34:23 GMT
+Last-Modified: Sat, 08 Jan 2011 20:34:18 GMT
+Server: lighttpd/1.4.26
+Content-Length: 13601
+Date: Sat, 08 Jan 2011 20:34:18 GMT
+X-Varnish: 1573715573
+Age: 0
+Via: 1.1 varnish
+X-Served-By: ps160
+X-Cache: MISS
+X-RateLimit-Limit: 10000
+X-RateLimit-Remaining: 9999
+X-RateLimit-Reset: 1294522458
+Connection: close
+
+{
+    "request": {
+        "parameters": {
+            "window": "hour",
+            "page": "1",
+            "url": "https://github.com/basho/riak/raw/riak-0.14.0/releasenotes/riak-0.14.0.txt",
+            "perpage": "100"
+        },
+        "response_type": "json",
+        "resource": "trackbacks",
+        "url": "http://otter.topsy.com/trackbacks.json?page=1&perpage=100&url=https%3A%2F%2Fgithub.com%2Fbasho%2Friak%2Fraw%2Friak-0.14.0%2Freleasenotes%2Friak-0.14.0.txt&window=hour"
+    },
+    "response": {
+        "page": 1,
+        "trackback_total": 25,
+        "total": 25,
+        "perpage": 100,
+        "last_offset": 25,
+        "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fbasho%2Friak%2Fraw%2Friak-0.14.0%2Freleasenotes%2Friak-0.14.0.txt",
+        "hidden": 0,
+        "list": [{
+            "permalink_url": "http://twitter.com/mmayo/status/23483779108569088",
+            "date": 1294433943,
+            "content": "RT @basho: Riak 0.14 Release is out. Blog post: http://bit.ly/eIOQnK Release: notes: http://bit.ly/fXwjM0 HN Comments: http://bit.ly/foJshE",
+            "date_alpha": "1 day ago",
+            "author": {
+                "name": "Mark Mayo",
+                "url": "http://twitter.com/mmayo",
+                "nick": "mmayo",
+                "topsy_author_url": "http://topsy.com/twitter/mmayo?utm_source=otter",
+                "photo_url": "http://a0.twimg.com/profile_images/19261432/IMG_0846_normal.jpg",
+                "influence_level": 8
+            },
+            "type": "tweet"
+        },
+        {
+            "permalink_url": "http://twitter.com/demotera/status/22988133704404992",
+            "date": 1294315772,
+            "content": "RT @basho: Riak 0.14 Release is out. Blog post: http://bit.ly/eIOQnK Release: notes: http://bit.ly/fXwjM0 HN Comments: http://bit.ly/foJshE",
+            "date_alpha": "2 days ago",
+            "author": {
+                "name": "demotera",
+                "url": "http://twitter.com/demotera",
+                "nick": "demotera",
+                "topsy_author_url": "http://topsy.com/twitter/demotera?utm_source=otter",
+                "photo_url": "http://a2.twimg.com/profile_images/956004814/demotera_graphic_normal.png"
+            },
+            "type": "tweet"
+        }],
+        "offset": 0
+    }
+}

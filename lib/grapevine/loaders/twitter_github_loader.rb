@@ -12,10 +12,11 @@ module Grapevine
       total = 999999
       
       # Loop over pages
-      while page * perpage < total
+      while (page-1) * perpage < total
         # Search for Twitter messages with GitHub links
         results = Topsy.search(:site => 'github.com', :window => :hour, :page => page, :perpage => perpage)
-        total = results.total
+        perpage = results.perpage
+        total   = results.total
         
         # Loop over links and load trackbacks for each one
         results.list.each do |item|
@@ -43,7 +44,7 @@ module Grapevine
       page = 1
       total = 999999
       
-      while page*perpage < total
+      while (page-1) * perpage < total
         # Find trackbacks
         results = Topsy.trackbacks(url, :window => :hour, :page => page, :perpage => perpage)
         total = results.total
