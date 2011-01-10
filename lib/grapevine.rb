@@ -10,6 +10,7 @@ require 'octopi'
 
 require 'grapevine/loaders'
 require 'grapevine/model'
+require 'grapevine/twitter'
 require 'grapevine/version'
 
 DataMapper.finalize

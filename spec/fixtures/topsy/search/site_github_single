@@ -1,57 +1,58 @@
 HTTP/1.1 200 OK
 Cache-Control: max-age=5
 Content-Type: application/json; charset=utf-8
-Expires: Thu, 06 Jan 2011 05:56:02 GMT
-Last-Modified: Thu, 06 Jan 2011 05:55:57 GMT
+Expires: Sun, 09 Jan 2011 01:12:23 GMT
+Last-Modified: Sun, 09 Jan 2011 01:12:18 GMT
 Server: lighttpd/1.4.26
-Content-Length: 26627
-Date: Thu, 06 Jan 2011 05:55:58 GMT
-X-Varnish: 640448297
+Content-Length: 9696
+Date: Sun, 09 Jan 2011 01:12:19 GMT
+X-Varnish: 655867910
 Age: 0
 Via: 1.1 varnish
 X-Served-By: ps163
 X-Cache: MISS
 X-RateLimit-Limit: 10000
-X-RateLimit-Remaining: 9940
-X-RateLimit-Reset: 1294295688
+X-RateLimit-Remaining: 7667
+X-RateLimit-Reset: 1294536057
 Connection: close
 
 {
     "request": {
         "parameters": {
-            "window": "h",
-            "q": "site:github.com",
+            "window": "realtime",
+            "page": "1",
+            "q": "github.com",
             "type": "cited",
-            "perpage": "50"
+            "perpage": "10"
         },
         "response_type": "json",
         "resource": "search",
-        "url": "http://otter.topsy.com/search.json?perpage=50&q=site%3Agithub.com&type=cited&window=h1"
+        "url": "http://otter.topsy.com/search.json?page=1&perpage=10&q=github.com&type=cited&window=realtime"
     },
     "response": {
-        "window": "h",
+        "window": "a",
         "page": 1,
-        "total": 28,
-        "perpage": 50,
-        "last_offset": 28,
+        "total": 1,
+        "perpage": 10,
+        "last_offset": 10,
         "hidden": 0,
         "list": [{
-            "trackback_permalink": "http://twitter.com/tgraupmann/status/22883882634313729",
-            "trackback_author_url": "http://twitter.com/tgraupmann",
-            "content": "Run your own ThinkUp server on Amazon for free - http://bit.ly/edHUGZ",
-            "trackback_date": 1294290917,
-            "topsy_author_img": "http://a0.twimg.com/profile_images/706433776/avatar_twitter_normal.jpg",
+            "trackback_permalink": "http://twitter.com/coplusk/status/23909517578211328",
+            "trackback_author_url": "http://twitter.com/coplusk",
+            "content": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching",
+            "trackback_date": 1294535447,
+            "topsy_author_img": "http://s.twimg.com/a/1292392187/images/default_profile_1_normal.png",
             "hits": 1,
-            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fginatrapani%2FThinkUp%2Fwiki%2FInstalling-ThinkUp-on-Amazon-EC2&utm_source=otter",
-            "firstpost_date": 1294232634,
-            "url": "https://github.com/ginatrapani/ThinkUp/wiki/Installing-ThinkUp-on-Amazon-EC2",
-            "trackback_author_nick": "tgraupmann",
-            "highlight": "Run your own ThinkUp server on Amazon for free - http://bit.ly/edHUGZ ",
-            "topsy_author_url": "http://topsy.com/twitter/tgraupmann?utm_source=otter",
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Ftomwaddington%2Fcutoutandkeep%2Fcommit%2F1e4117f001d224cd15039ff030bc39b105f24a13&utm_source=otter",
+            "firstpost_date": 1294535447,
+            "url": "https://github.com/tomwaddington/cutoutandkeep/commit/1e4117f001d224cd15039ff030bc39b105f24a13",
+            "trackback_author_nick": "coplusk",
+            "highlight": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching ",
+            "topsy_author_url": "http://topsy.com/twitter/coplusk?utm_source=otter",
             "mytype": "link",
-            "score": 9.37768,
-            "trackback_total": 17,
-            "title": "Installing thinkup on amazon ec2 - ThinkUp - GitHub"
+            "score": 0.195851,
+            "trackback_total": 1,
+            "title": "cutoutandkeep]  Tom Waddington - caching"
         }],
         "offset": 0
     }

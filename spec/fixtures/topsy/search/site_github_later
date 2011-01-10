@@ -1,0 +1,167 @@
+HTTP/1.1 200 OK
+Cache-Control: max-age=5
+Content-Type: application/json; charset=utf-8
+Expires: Sun, 09 Jan 2011 01:12:23 GMT
+Last-Modified: Sun, 09 Jan 2011 01:12:18 GMT
+Server: lighttpd/1.4.26
+Content-Length: 9696
+Date: Sun, 09 Jan 2011 01:12:19 GMT
+X-Varnish: 655867910
+Age: 0
+Via: 1.1 varnish
+X-Served-By: ps163
+X-Cache: MISS
+X-RateLimit-Limit: 10000
+X-RateLimit-Remaining: 7667
+X-RateLimit-Reset: 1294536057
+Connection: close
+
+{
+    "request": {
+        "parameters": {
+            "window": "realtime",
+            "page": "1",
+            "q": "github.com",
+            "type": "cited",
+            "perpage": "10"
+        },
+        "response_type": "json",
+        "resource": "search",
+        "url": "http://otter.topsy.com/search.json?page=1&perpage=10&q=github.com&type=cited&window=realtime"
+    },
+    "response": {
+        "window": "a",
+        "page": 1,
+        "total": 10,
+        "perpage": 10,
+        "last_offset": 10,
+        "hidden": 0,
+        "list": [{
+            "trackback_permalink": "",
+            "trackback_author_url": "http://twitter.com/topsy_top20k_technology",
+            "content": "And MongoDB became even faster:",
+            "trackback_date": 1299535447,
+            "topsy_author_img": "",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fmongodb%2Fmongo%2Fcommit%2Fbcb127567ddd8690ec1897a34c3fb81f27866b6b&utm_source=otter",
+            "firstpost_date": 1299535447,
+            "url": "https://github.com/mongodb/mongo/commit/bcb127567ddd8690ec1897a34c3fb81f27866b6b",
+            "trackback_author_nick": "topsy_top20k_technology",
+            "highlight": "And MongoDB became even faster: ",
+            "topsy_author_url": "http://topsy.com/twitter/topsy_top20k_technology?utm_source=otter",
+            "mytype": "link",
+            "score": 0.203469,
+            "trackback_total": 11,
+            "title": "Commit bcb127567ddd8690ec1897a34c3fb81f27866b6b to mongodb's mongo - GitHub"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/nodemodules/status/239038732529",
+            "trackback_author_url": "http://twitter.com/nodemodules",
+            "content": "sesh (0.1.0) - http://bit.ly/fiBwma",
+            "trackback_date": 1298535447,
+            "topsy_author_img": "http://a1.twimg.com/profile_images/1121199905/nodemodules_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fmarak%2Fsession.js&utm_source=otter",
+            "firstpost_date": 1298535447,
+            "url": "https://github.com/marak/session.js",
+            "trackback_author_nick": "nodemodules",
+            "highlight": "sesh (0.1.0) - http://bit.ly/fiBwma ",
+            "topsy_author_url": "http://topsy.com/twitter/nodemodules?utm_source=otter",
+            "mytype": "link",
+            "score": 0.237032,
+            "trackback_total": 2,
+            "title": "Marak/session.js - GitHub"
+		},
+		{
+            "trackback_permalink": "http://twitter.com/coplusk/status/23909517578211328",
+            "trackback_author_url": "http://twitter.com/coplusk",
+            "content": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching",
+            "trackback_date": 1294535447,
+            "topsy_author_img": "http://s.twimg.com/a/1292392187/images/default_profile_1_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Ftomwaddington%2Fcutoutandkeep%2Fcommit%2F1e4117f001d224cd15039ff030bc39b105f24a13&utm_source=otter",
+            "firstpost_date": 1294535447,
+            "url": "https://github.com/tomwaddington/cutoutandkeep/commit/1e4117f001d224cd15039ff030bc39b105f24a13",
+            "trackback_author_nick": "coplusk",
+            "highlight": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching ",
+            "topsy_author_url": "http://topsy.com/twitter/coplusk?utm_source=otter",
+            "mytype": "link",
+            "score": 0.195851,
+            "trackback_total": 1,
+            "title": "cutoutandkeep]  Tom Waddington - caching"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/oscurrency/status/23907860031209472",
+            "trackback_author_url": "http://twitter.com/oscurrency",
+            "content": "[oscurrency] http://bit.ly/es19Dl Tom Brown - groupy branch: display all of the admin of a group on the membership administration page",
+            "trackback_date": 1294535052,
+            "topsy_author_img": "http://s.twimg.com/a/1292022067/images/default_profile_1_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Faustintimeexchange%2Foscurrency%2Fcommit%2F35f06c911f2c9b521e24bf73f936b8c783d52e17&utm_source=otter",
+            "firstpost_date": 1294535052,
+            "url": "https://github.com/austintimeexchange/oscurrency/commit/35f06c911f2c9b521e24bf73f936b8c783d52e17",
+            "trackback_author_nick": "oscurrency",
+            "highlight": "[oscurrency] http://bit.ly/es19Dl Tom Brown - groupy branch: display all of the admin of a group on the membership administration page ",
+            "topsy_author_url": "http://topsy.com/twitter/oscurrency?utm_source=otter",
+            "mytype": "link",
+            "score": 0.189456,
+            "trackback_total": 1,
+            "title": "Commit 35f06c911f2c9b521e24bf73f936b8c783d52e17 to austintimeexchange's oscurrency - GitHub"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/mbolingbroke/status/23905555005317120",
+            "trackback_author_url": "http://twitter.com/mbolingbroke",
+            "content": "Implementing the GHC runtime system in Haskell for http://bit.ly/fw0vZH. I never appreciated how subtle async. exceptions were until now..",
+            "trackback_date": 1294534503,
+            "topsy_author_img": "http://a0.twimg.com/profile_images/1160468370/me-pumpkin_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fbatterseapower%2Fconcurrency-test&utm_source=otter",
+            "firstpost_date": 1294534503,
+            "url": "https://github.com/batterseapower/concurrency-test",
+            "trackback_author_nick": "mbolingbroke",
+            "highlight": "Implementing the GHC runtime system in Haskell for http://bit.ly/fw0vZH. I never appreciated how subtle async. exceptions were until now.. ",
+            "topsy_author_url": "http://topsy.com/twitter/mbolingbroke?utm_source=otter",
+            "mytype": "link",
+            "score": 0.185219,
+            "trackback_total": 1,
+            "title": "batterseapower/concurrency-test - GitHub"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/mariovisic/status/23905388042653696",
+            "trackback_author_url": "http://twitter.com/mariovisic",
+            "content": "Lol @ like a boss gem, I still don&#39;t know what it does after reading the readme http://j.mp/feBL1f /cc @Sutto",
+            "trackback_date": 1294534463,
+            "topsy_author_img": "http://a0.twimg.com/profile_images/1145304275/e535495ad0ff9f536b686c65dc6b7d17_normal.jpeg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fdaneharrigan%2Flike_a_boss&utm_source=otter",
+            "firstpost_date": 1294534463,
+            "url": "https://github.com/daneharrigan/like_a_boss",
+            "trackback_author_nick": "mariovisic",
+            "highlight": "Lol @ like a boss gem, I still don&#39;t know what it does after reading the readme http://j.mp/feBL1f /cc @Sutto ",
+            "topsy_author_url": "http://topsy.com/twitter/mariovisic?utm_source=otter",
+            "mytype": "link",
+            "score": 0.192984,
+            "trackback_total": 1,
+            "title": "daneharrigan/like_a_boss - GitHub"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/mangos_tbc/status/23905130306871296",
+            "trackback_author_url": "http://twitter.com/mangos_tbc",
+            "content": "[s0651] Some comments from not backportable commit. http://bit.ly/fxLEL9",
+            "trackback_date": 1294534401,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/788634474/mangos_twitter_logo_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fmangos%2Fone%2Fcommit%2Fee572c8ee639a13bdf9d81d7e451c94e0cb1baa7&utm_source=otter",
+            "firstpost_date": 1294534401,
+            "url": "https://github.com/mangos/one/commit/ee572c8ee639a13bdf9d81d7e451c94e0cb1baa7",
+            "trackback_author_nick": "mangos_tbc",
+            "highlight": "[s0651] Some comments from not backportable commit. http://bit.ly/fxLEL9 ",
+            "topsy_author_url": "http://topsy.com/twitter/mangos_tbc?utm_source=otter",
+            "mytype": "link",
+            "score": 0.191296,
+            "trackback_total": 1,
+            "title": "Commit ee572c8ee639a13bdf9d81d7e451c94e0cb1baa7 to mangos's one - GitHub"
+        }],
+        "offset": 0
+    }
+}

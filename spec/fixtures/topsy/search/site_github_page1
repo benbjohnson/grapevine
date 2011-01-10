@@ -1,75 +1,76 @@
 HTTP/1.1 200 OK
 Cache-Control: max-age=5
 Content-Type: application/json; charset=utf-8
-Expires: Thu, 06 Jan 2011 05:56:02 GMT
-Last-Modified: Thu, 06 Jan 2011 05:55:57 GMT
+Expires: Sun, 09 Jan 2011 01:12:23 GMT
+Last-Modified: Sun, 09 Jan 2011 01:12:18 GMT
 Server: lighttpd/1.4.26
-Content-Length: 26627
-Date: Thu, 06 Jan 2011 05:55:58 GMT
-X-Varnish: 640448297
+Content-Length: 9696
+Date: Sun, 09 Jan 2011 01:12:19 GMT
+X-Varnish: 655867910
 Age: 0
 Via: 1.1 varnish
 X-Served-By: ps163
 X-Cache: MISS
 X-RateLimit-Limit: 10000
-X-RateLimit-Remaining: 9940
-X-RateLimit-Reset: 1294295688
+X-RateLimit-Remaining: 7667
+X-RateLimit-Reset: 1294536057
 Connection: close
 
 {
     "request": {
         "parameters": {
-            "window": "h",
-            "q": "site:github.com",
+            "window": "realtime",
+            "page": "1",
+            "q": "github.com",
             "type": "cited",
-            "perpage": "50"
+            "perpage": "2"
         },
         "response_type": "json",
         "resource": "search",
-        "url": "http://otter.topsy.com/search.json?perpage=50&q=site%3Agithub.com&type=cited&window=h1"
+        "url": "http://otter.topsy.com/search.json?page=1&perpage=10&q=github.com&type=cited&window=realtime"
     },
     "response": {
-        "window": "h",
+        "window": "a",
         "page": 1,
-        "total": 3,
+        "total": 4,
         "perpage": 2,
-        "last_offset": 28,
+        "last_offset": 2,
         "hidden": 0,
         "list": [{
-            "trackback_permalink": "http://twitter.com/curphey/status/22880523839868929",
-            "trackback_author_url": "http://twitter.com/curphey",
-            "content": "Want to track the cost of expensive meetings (in real-time) ? -  http://t.co/MWmXXj2",
-            "trackback_date": 1294290116,
-            "topsy_author_img": "http://a0.twimg.com/profile_images/1112333640/curphey_normal.jpg",
-            "hits": 2,
-            "topsy_trackback_url": "http://topsy.com/tobytripp.github.com/meeting-ticker/?utm_source=otter",
-            "firstpost_date": 1241540885,
-            "url": "http://tobytripp.github.com/meeting-ticker/",
-            "trackback_author_nick": "curphey",
-            "highlight": "Want to track the cost of expensive meetings (in real-time) ? -  http://t.co/MWmXXj2 ",
-            "topsy_author_url": "http://topsy.com/twitter/curphey?utm_source=otter",
+            "trackback_permalink": "http://twitter.com/coplusk/status/23909517578211328",
+            "trackback_author_url": "http://twitter.com/coplusk",
+            "content": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching",
+            "trackback_date": 1294535447,
+            "topsy_author_img": "http://s.twimg.com/a/1292392187/images/default_profile_1_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Ftomwaddington%2Fcutoutandkeep%2Fcommit%2F1e4117f001d224cd15039ff030bc39b105f24a13&utm_source=otter",
+            "firstpost_date": 1294535447,
+            "url": "https://github.com/tomwaddington/cutoutandkeep/commit/1e4117f001d224cd15039ff030bc39b105f24a13",
+            "trackback_author_nick": "coplusk",
+            "highlight": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching ",
+            "topsy_author_url": "http://topsy.com/twitter/coplusk?utm_source=otter",
             "mytype": "link",
-            "score": 11.1888,
-            "trackback_total": 1651,
-            "title": "Meeting Ticker"
+            "score": 0.195851,
+            "trackback_total": 1,
+            "title": "cutoutandkeep]  Tom Waddington - caching"
         },
         {
-            "trackback_permalink": "http://twitter.com/debasishg/status/22883241623031808",
-            "trackback_author_url": "http://twitter.com/debasishg",
-            "content": "RT @basho: Riak 0.14 Release is out. Blog post: http://bit.ly/eIOQnK Release: notes: http://bit.ly/fXwjM0 HN Comments: http://bit.ly/foJshE",
-            "trackback_date": 1294290764,
-            "topsy_author_img": "http://a2.twimg.com/profile_images/983678766/12062010119_normal.jpg",
+            "trackback_permalink": "http://twitter.com/oscurrency/status/23907860031209472",
+            "trackback_author_url": "http://twitter.com/oscurrency",
+            "content": "[oscurrency] http://bit.ly/es19Dl Tom Brown - groupy branch: display all of the admin of a group on the membership administration page",
+            "trackback_date": 1294535052,
+            "topsy_author_img": "http://s.twimg.com/a/1292022067/images/default_profile_1_normal.png",
             "hits": 1,
-            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Fbasho%2Friak%2Fraw%2Friak-0.14.0%2Freleasenotes%2Friak-0.14.0.txt&utm_source=otter",
-            "firstpost_date": 1294266690,
-            "url": "https://github.com/basho/riak/raw/riak-0.14.0/releasenotes/riak-0.14.0.txt",
-            "trackback_author_nick": "debasishg",
-            "highlight": "RT @basho: Riak 0.14 Release is out. Blog post: http://bit.ly/eIOQnK Release: notes: http://bit.ly/fXwjM0 HN Comments: http://bit.ly/foJshE ",
-            "topsy_author_url": "http://topsy.com/twitter/debasishg?utm_source=otter",
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Faustintimeexchange%2Foscurrency%2Fcommit%2F35f06c911f2c9b521e24bf73f936b8c783d52e17&utm_source=otter",
+            "firstpost_date": 1294535052,
+            "url": "https://github.com/austintimeexchange/oscurrency/commit/35f06c911f2c9b521e24bf73f936b8c783d52e17",
+            "trackback_author_nick": "oscurrency",
+            "highlight": "[oscurrency] http://bit.ly/es19Dl Tom Brown - groupy branch: display all of the admin of a group on the membership administration page ",
+            "topsy_author_url": "http://topsy.com/twitter/oscurrency?utm_source=otter",
             "mytype": "link",
-            "score": 9.94472,
-            "trackback_total": 20,
-            "title": "Happy that Riak 0.14 is finally out with Key Filtering! Available:  changelog:  #riak"
+            "score": 0.189456,
+            "trackback_total": 1,
+            "title": "Commit 35f06c911f2c9b521e24bf73f936b8c783d52e17 to austintimeexchange's oscurrency - GitHub"
         }],
         "offset": 0
     }
