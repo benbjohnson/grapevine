@@ -1,0 +1,221 @@
+HTTP/1.1 200 OK
+Cache-Control: max-age=5
+Content-Type: application/json; charset=utf-8
+Expires: Wed, 12 Jan 2011 00:10:16 GMT
+Last-Modified: Wed, 12 Jan 2011 00:10:11 GMT
+Server: lighttpd/1.4.26
+Content-Length: 10230
+Date: Wed, 12 Jan 2011 00:10:11 GMT
+X-Varnish: 1080030036
+Age: 0
+Via: 1.1 varnish
+X-Served-By: ps391
+X-Cache: MISS
+X-RateLimit-Limit: 10000
+X-RateLimit-Remaining: 9990
+X-RateLimit-Reset: 1294794611
+Connection: close
+
+{
+    "request": {
+        "parameters": {
+            "window": "realtime",
+            "page": "1",
+            "q": "stackoverflow.com",
+            "type": "cited",
+            "perpage": "10"
+        },
+        "response_type": "json",
+        "resource": "search",
+        "url": "http://otter.topsy.com/search.json?page=1&perpage=10&q=stackoverflow.com&type=cited&window=realtime"
+    },
+    "response": {
+        "window": "a",
+        "page": 1,
+        "total": 504271,
+        "perpage": 10,
+        "last_offset": 10,
+        "hidden": 0,
+        "list": [{
+            "trackback_permalink": "http://twitter.com/iphoneatso/status/24981377287987201",
+            "trackback_author_url": "http://twitter.com/iphoneatso",
+            "content": "iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView http://bit.ly/fo5wTS",
+            "trackback_date": 1294790999,
+            "topsy_author_img": "http://a1.twimg.com/a/1292975674/images/default_profile_1_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite?utm_source=otter",
+            "firstpost_date": 1294788565,
+            "url": "http://stackoverflow.com/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite",
+            "trackback_author_nick": "iphoneatso",
+            "highlight": "iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView http://bit.ly/fo5wTS ",
+            "topsy_author_url": "http://topsy.com/twitter/iphoneatso?utm_source=otter",
+            "mytype": "link",
+            "score": 0.201032,
+            "trackback_total": 2,
+            "title": "iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/railsatso/status/24981352193466368",
+            "trackback_author_url": "http://twitter.com/railsatso",
+            "content": "Testing helpers in Rails 3 with Rspec 2 and Devise http://bit.ly/ewtw8a",
+            "trackback_date": 1294790993,
+            "topsy_author_img": "http://a0.twimg.com/profile_images/1124673124/RailsAtSO_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663897/testing-helpers-in-rails-3-with-rspec-2-and-devise?utm_source=otter",
+            "firstpost_date": 1294790993,
+            "url": "http://stackoverflow.com/questions/4663897/testing-helpers-in-rails-3-with-rspec-2-and-devise",
+            "trackback_author_nick": "railsatso",
+            "highlight": "Testing helpers in Rails 3 with Rspec 2 and Devise http://bit.ly/ewtw8a ",
+            "topsy_author_url": "http://topsy.com/twitter/railsatso?utm_source=otter",
+            "mytype": "link",
+            "score": 0.211638,
+            "trackback_total": 1,
+            "title": "Testing helpers in Rails 3 with Rspec 2 and Devise"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/lanzalibre/status/24980639421833216",
+            "trackback_author_url": "http://twitter.com/lanzalibre",
+            "content": "#StackOverflow package import problem in mathematica http://bit.ly/h6HNgY",
+            "trackback_date": 1294790823,
+            "topsy_author_img": "http://a2.twimg.com/profile_images/859238013/lanzalibre_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4664091/package-import-problem-in-mathematica?utm_source=otter",
+            "firstpost_date": 1294790823,
+            "url": "http://stackoverflow.com/questions/4664091/package-import-problem-in-mathematica",
+            "trackback_author_nick": "lanzalibre",
+            "highlight": "#<span class=\"highlight-term\">StackOverflow</span> package import problem in mathematica http://bit.ly/h6HNgY ",
+            "topsy_author_url": "http://topsy.com/twitter/lanzalibre?utm_source=otter",
+            "mytype": "link",
+            "score": 0.220167,
+            "trackback_total": 1,
+            "title": "package import problem in mathematica - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/stackappbot/status/24980188450267137",
+            "trackback_author_url": "http://twitter.com/stackappbot",
+            "content": "@dezfafara Stack Overflow post http://bit.ly/gjv2F8 WPF 4 DataGrid: Getting the Row Number into the RowHeader",
+            "trackback_date": 1294790715,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/1035018377/phead_crop_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663771/wpf-4-datagrid-getting-the-row-number-into-the-rowheader?utm_source=otter",
+            "firstpost_date": 1294790715,
+            "url": "http://stackoverflow.com/questions/4663771/wpf-4-datagrid-getting-the-row-number-into-the-rowheader",
+            "trackback_author_nick": "stackappbot",
+            "highlight": "@dezfafara Stack Overflow post http://bit.ly/gjv2F8 WPF 4 DataGrid: Getting the Row Number into the RowHeader ",
+            "topsy_author_url": "http://topsy.com/twitter/stackappbot?utm_source=otter",
+            "mytype": "link",
+            "score": 0.170313,
+            "trackback_total": 1,
+            "title": "wpfdatagrid - WPF 4 DataGrid: Getting the Row Number into the RowHeader - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/stackappbot/status/24980181798092800",
+            "trackback_author_url": "http://twitter.com/stackappbot",
+            "content": "@dezfafara Stack Overflow post http://bit.ly/hNFkbz WPF ClickOnce Bootstrap Dection Failure on One Machine",
+            "trackback_date": 1294790714,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/1035018377/phead_crop_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663810/wpf-clickonce-bootstrap-dection-failure-on-one-machine?utm_source=otter",
+            "firstpost_date": 1294790714,
+            "url": "http://stackoverflow.com/questions/4663810/wpf-clickonce-bootstrap-dection-failure-on-one-machine",
+            "trackback_author_nick": "stackappbot",
+            "highlight": "@dezfafara Stack Overflow post http://bit.ly/hNFkbz WPF ClickOnce Bootstrap Dection Failure on One Machine ",
+            "topsy_author_url": "http://topsy.com/twitter/stackappbot?utm_source=otter",
+            "mytype": "link",
+            "score": 0.157834,
+            "trackback_total": 1,
+            "title": "WPF ClickOnce Bootstrap Dection Failure on One Machine - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/stackappbot/status/24980175414362112",
+            "trackback_author_url": "http://twitter.com/stackappbot",
+            "content": "@dezfafara Stack Overflow post http://bit.ly/dMGyEq WPF grid&#39;s SharedSizeGroup and * sizing",
+            "trackback_date": 1294790712,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/1035018377/phead_crop_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4664008/wpf-grids-sharedsizegroup-and-sizing?utm_source=otter",
+            "firstpost_date": 1294790712,
+            "url": "http://stackoverflow.com/questions/4664008/wpf-grids-sharedsizegroup-and-sizing",
+            "trackback_author_nick": "stackappbot",
+            "highlight": "@dezfafara Stack Overflow post http://bit.ly/dMGyEq WPF grid&#39;s SharedSizeGroup and * sizing ",
+            "topsy_author_url": "http://topsy.com/twitter/stackappbot?utm_source=otter",
+            "mytype": "link",
+            "score": 0.172035,
+            "trackback_total": 1,
+            "title": "wpf controls - WPF grid's SharedSizeGroup and * sizing - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/stackappbot/status/24980164735664129",
+            "trackback_author_url": "http://twitter.com/stackappbot",
+            "content": "@dezfafara Stack Overflow post http://bit.ly/ex2O49 Accessing User.Identity from Master Page",
+            "trackback_date": 1294790710,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/1035018377/phead_crop_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663968/accessing-user-identity-from-master-page?utm_source=otter",
+            "firstpost_date": 1294790109,
+            "url": "http://stackoverflow.com/questions/4663968/accessing-user-identity-from-master-page",
+            "trackback_author_nick": "stackappbot",
+            "highlight": "@dezfafara Stack Overflow post http://bit.ly/ex2O49 Accessing User.Identity from Master Page ",
+            "topsy_author_url": "http://topsy.com/twitter/stackappbot?utm_source=otter",
+            "mytype": "link",
+            "score": 0.18986,
+            "trackback_total": 2,
+            "title": "c# - Accessing User.Identity from Master Page - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/stackappbot/status/24980147757121537",
+            "trackback_author_url": "http://twitter.com/stackappbot",
+            "content": "@dezfafara Stack Overflow post http://bit.ly/enhGN4  System.Runtime.InteropServices.COMException (0x80040154):",
+            "trackback_date": 1294790705,
+            "topsy_author_img": "http://a3.twimg.com/profile_images/1035018377/phead_crop_normal.jpg",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663994/system-runtime-interopservices-comexception-0x80040154?utm_source=otter",
+            "firstpost_date": 1294790104,
+            "url": "http://stackoverflow.com/questions/4663994/system-runtime-interopservices-comexception-0x80040154",
+            "trackback_author_nick": "stackappbot",
+            "highlight": "@dezfafara Stack Overflow post http://bit.ly/enhGN4  System.Runtime.InteropServices.COMException (0x80040154): ",
+            "topsy_author_url": "http://topsy.com/twitter/stackappbot?utm_source=otter",
+            "mytype": "link",
+            "score": 0.158091,
+            "trackback_total": 2,
+            "title": "c# - System.Runtime.InteropServices.COMException (0x80040154): - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/javascriptatso/status/24980143457968128",
+            "trackback_author_url": "http://twitter.com/javascriptatso",
+            "content": "Using jQuery in a class http://bit.ly/i2rIes",
+            "trackback_date": 1294790704,
+            "topsy_author_img": "http://a2.twimg.com/a/1292975674/images/default_profile_2_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663739/using-jquery-in-a-class?utm_source=otter",
+            "firstpost_date": 1294790704,
+            "url": "http://stackoverflow.com/questions/4663739/using-jquery-in-a-class",
+            "trackback_author_nick": "javascriptatso",
+            "highlight": "Using jQuery in a class http://bit.ly/i2rIes ",
+            "topsy_author_url": "http://topsy.com/twitter/javascriptatso?utm_source=otter",
+            "mytype": "link",
+            "score": 0.275008,
+            "trackback_total": 1,
+            "title": "javascript - Using jQuery in a class - Stack Overflow"
+        },
+        {
+            "trackback_permalink": "http://twitter.com/javascriptatso/status/24980139313987586",
+            "trackback_author_url": "http://twitter.com/javascriptatso",
+            "content": "How to exclude undesired descendants? http://bit.ly/hQHSAP",
+            "trackback_date": 1294790703,
+            "topsy_author_img": "http://a2.twimg.com/a/1292975674/images/default_profile_2_normal.png",
+            "hits": 1,
+            "topsy_trackback_url": "http://topsy.com/stackoverflow.com/questions/4663793/how-to-exclude-undesired-descendants?utm_source=otter",
+            "firstpost_date": 1294790703,
+            "url": "http://stackoverflow.com/questions/4663793/how-to-exclude-undesired-descendants",
+            "trackback_author_nick": "javascriptatso",
+            "highlight": "How to exclude undesired descendants? http://bit.ly/hQHSAP ",
+            "topsy_author_url": "http://topsy.com/twitter/javascriptatso?utm_source=otter",
+            "mytype": "link",
+            "score": 0.20034,
+            "trackback_total": 1,
+            "title": "javascript - How to exclude undesired descendants? - Stack Overflow"
+        }],
+        "offset": 0
+    }
+}

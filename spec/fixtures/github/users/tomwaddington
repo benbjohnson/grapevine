@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Wed, 26 Jan 2011 01:11:49 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "08ab68041ed725422ed23b6d19ca924c"
+X-RateLimit-Remaining: 58
+X-Runtime: 20ms
+Content-Length: 371
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+user: 
+  gravatar_id: a8d544dadaef2fff6e5afc62c0d6e53e
+  company: Cut Out + Keep
+  name: Tom Waddington
+  created_at: 2009-03-20 15:44:35 -07:00
+  location: London
+  public_repo_count: 3
+  public_gist_count: 1
+  blog: http://www.tomwaddington.co.uk
+  following_count: 3
+  id: 65419
+  type: User
+  permission: 
+  followers_count: 0
+  login: tomwaddington
+  email: ""

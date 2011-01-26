@@ -7,10 +7,9 @@ require 'dm-validations'
 require 'dm-tags'
 require 'topsy'
 require 'octopi'
+require 'open-uri'
 
-require 'grapevine/loaders'
+require 'grapevine/loader'
 require 'grapevine/model'
 require 'grapevine/twitter'
 require 'grapevine/version'
-
-DataMapper.finalize

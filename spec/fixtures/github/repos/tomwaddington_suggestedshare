@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.67
+Date: Wed, 26 Jan 2011 04:10:40 GMT
+Content-Type: application/x-yaml; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+ETag: "a05bdc81930794b4b12e69ccae0a7567"
+X-RateLimit-Remaining: 59
+X-Runtime: 10ms
+Content-Length: 617
+Cache-Control: private, max-age=0, must-revalidate
+
+--- 
+repository: 
+  :has_wiki: true
+  :url: https://github.com/tomwaddington/suggestedshare
+  :forks: 1
+  :homepage: http://www.tomwaddington.co.uk/projects/suggested-share
+  :open_issues: 0
+  :created_at: !timestamp 
+    at: "2010-10-21 12:47:39 -07:00"
+    "@marshal_with_utc_coercion": false
+  :fork: false
+  :has_issues: true
+  :size: 176
+  :private: false
+  :has_downloads: true
+  :name: suggestedshare
+  :owner: tomwaddington
+  :pushed_at: !timestamp 
+    at: "2010-12-03 16:17:44 -08:00"
+    "@marshal_with_utc_coercion": false
+  :watchers: 2
+  :description: Share content on Facebook with like-minded friends

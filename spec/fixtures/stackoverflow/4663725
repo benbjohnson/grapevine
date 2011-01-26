@@ -1,0 +1,597 @@
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=60
+Content-Type: text/html; charset=utf-8
+Expires: Wed, 12 Jan 2011 00:13:41 GMT
+Last-Modified: Wed, 12 Jan 2011 00:12:41 GMT
+Vary: *
+Date: Wed, 12 Jan 2011 00:12:40 GMT
+Content-Length: 32383
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    
+    <title>iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView - Stack Overflow</title>
+    <link rel="stylesheet" type="text/css" href="http://sstatic.net/stackoverflow/all.css?v=9161927ef7a6">
+    <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="http://sstatic.net/js/master.min.js?v=985906934f87"></script>
+    <script type="text/javascript">
+    var imagePath='http://sstatic.net/stackoverflow/img/';
+    var inboxUnviewedCount = -1;
+    
+    </script>
+    
+    <link rel="canonical" href="http://stackoverflow.com/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView'" href="/feeds/question/4663725">
+
+    <script src="http://sstatic.net/js/question.js?v=12f7cfc9e5a2" type="text/javascript"></script>
+
+
+    
+    <script type="text/javascript">
+        var fkey = "f0a7847599c4a212cd893bd052a9e7ac";
+    
+        
+        
+        $(function() {
+            
+            vote.init(4663725);
+            comments.init();
+            $(initTagMenu);
+            styleCode();
+        
+        });
+    </script>
+
+
+        <script type="text/javascript">gauth.checkStackAuth('http://stackauth.com');</script>
+        
+        <script type="text/javascript">gauth.informStackAuth('http://stackauth.com');</script>
+
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+
+    <script type="text/javascript">
+        $(function() { notify.showFirstTime('Q&amp;A for professional and enthusiast programmers'); });
+    </script>
+
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                
+                <a class="genu" href="http://stackexchange.com">Stack Exchange</a>
+                
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="/users/login?returnurl=%2fquestions%2f4663725%2fiphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite">log in</a>
+ <span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com">careers</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.stackoverflow.com">meta</a>
+ <span class="lsep">|</span>
+<a href="/about">about</a>
+ <span class="lsep">|</span>
+<a href="/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get">
+                    <div>
+                        <input name="q" class="textbox" tabindex="1" onfocus="if (this.value=='search') this.value = ''" type="text" maxlength="80" size="28" value="search">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li >
+                            <a id="nav-askquestion" href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div id="content">
+            
+
+<div id="question-header">
+    <h1><a href="/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite" class="question-hyperlink">iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView</a></h1>
+</div>
+
+<div id="mainbar">
+
+
+
+<div id="question">
+    
+    <div class="everyonelovesstackoverflow" id="adzerk1">
+    </div>
+
+     
+    
+
+    <table>
+    <tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input type="hidden" value="4663725">
+    <a class="vote-up-off" title="This question is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This question is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b></b></div>    
+
+</div>
+
+    </td>
+    <td class="postcell">
+        <div>          
+            <div class="post-text">
+                <p>I'm searching for a good method to display a keyboard with a done button to allow it to dismiss when the user have finished modifying a UITextView. The UITextView may accept return keys so I can't use the keyboard button to dismiss it.</p>
+
+<p>It would be also really great if this keyboard was modal, or if a click anywhere on another control than the UITextView would dismiss it.</p>
+
+<p>Do you know how to do it and do it well ?</p>
+
+<p>I tried a lot of code found on the Web, and I'm a little bit tired for now trying to make such a simple and standard thing...</p>
+
+            </div>            
+            <div class="post-taglist">
+                <a href="/questions/tagged/iphone" class="post-tag" title="show questions tagged 'iphone'" rel="tag">iphone</a> <a href="/questions/tagged/button" class="post-tag" title="show questions tagged 'button'" rel="tag">button</a> <a href="/questions/tagged/keyboard" class="post-tag" title="show questions tagged 'keyboard'" rel="tag">keyboard</a> <a href="/questions/tagged/uitextview" class="post-tag" title="show questions tagged 'uitextview'" rel="tag">uitextview</a> <a href="/questions/tagged/dismiss" class="post-tag" title="show questions tagged 'dismiss'" rel="tag">dismiss</a> 
+            </div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a href="/q/4663725" title="short permalink to this question">link</a><span class="lsep">|</span><a id="flag-post-4663725" title="flag this post for serious problems or moderator attention">flag</a></div>
+                
+            </td>
+        
+            <td class="post-signature owner">
+            <div class="user-info"><div class="user-action-time">asked <span title="2011-01-11 23:09:45Z" class="relativetime">1 hour ago</span></div><div class="user-gravatar32"><a href="/users/499417/oliver"><img src="http://www.gravatar.com/avatar/4926053f9238c44da0ea8dc27ce113ba?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/499417/oliver" >Oliver</a><br><span class="reputation-score" title="reputation score">59</span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span></div></div>
+            <br class="cbt">
+            <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 21 of 22 eligible questions">95% accept rate</div>
+            
+            </td>
+            </tr>
+            </table>
+        </div>
+    </td>
+    </tr>
+
+    
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4663725" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+
+    </table>
+    
+</div>
+
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>1 Answer</h2>
+            <div id="tabs">
+                <a href="/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite?tab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite?tab=newest#tab-top" title="Most recent answers first">newest</a>
+<a class="youarehere" href="/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite?tab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <a name="4663848"></a>
+    
+    <div id="answer-4663848" class="answer">
+        
+        <table>
+        <tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="4663848">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer 24 mins ago">accepted</span>
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>Take a look at <a href="https://developer.apple.com/library/ios/#documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html" rel="nofollow">Custom Views for Data Input</a>.</p>
+
+<p>Also, you don't "click" in iOS, you "tap".</p>
+</div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a href="/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite/4663848#4663848" title="permalink to this answer">link</a><span class="lsep">|</span><a id="flag-post-4663848" title="flag this post for serious problems or moderator attention">flag</a></div>
+                
+            </td>
+            
+            <td align="right" class="post-signature">
+            <div class="user-info"><div class="user-action-time">answered <span title="2011-01-11 23:28:11Z" class="relativetime">44 mins ago</span></div><div class="user-gravatar32"><a href="/users/8427/jim"><img src="http://www.gravatar.com/avatar/1204ff2c65e274123328b48072686bb4?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/8427/jim" >Jim</a><br><span class="reputation-score" title="reputation score">5,089</span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span></div></div>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4663848" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-5138524" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@Jim : Thank you. While I&#39;m trying, can you tell me if you know how to prevent theuser to make changes in the windows while editing the textView (modal keyboard... transparent things... resign everywhere...) ?</span> &ndash;&nbsp;<a href="/users/499417/oliver" title="59 reputation" class="comment-user owner">Oliver</a> <span class="comment-date"><span title="2011-01-11 23:35:12Z">37 mins ago</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-5138586" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">As a general rule of thumb, it&#39;s better usability-wise to set up the controls in a standard way and let the user get on with it rather than micromanaging the user&#39;s interactions.  Most of the time when people ask me to do something like this, it&#39;s because they are trying to ignore the medium and break platform conventions.  Apple seem to deliberately design the SDK to make this difficult.</span> &ndash;&nbsp;<a href="/users/8427/jim" title="5089 reputation" class="comment-user">Jim</a> <span class="comment-date"><span title="2011-01-11 23:42:45Z">29 mins ago</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-5138643" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@Jim : I&#39;ve read the apple doc, but I can&#39;t achieve setting the inputAccessoryView. Can you help me to place the code at the right place ? I&#39;m initing with a nib.</span> &ndash;&nbsp;<a href="/users/499417/oliver" title="59 reputation" class="comment-user owner">Oliver</a> <span class="comment-date"><span title="2011-01-11 23:48:11Z">24 mins ago</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-5138788" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Every UIResponder subclass (such as UITextView) has the inputAccessoryView property.  So you need to assign a view to that property for each text view you want to have the extra button.  Create an IBOutlet in your view controller for the text view, then hook it up in Interface Builder.  Then when your view is being set up, set the inputAccessoryView on the IBOutlet.</span> &ndash;&nbsp;<a href="/users/8427/jim" title="5089 reputation" class="comment-user">Jim</a> <span class="comment-date"><span title="2011-01-12 00:02:44Z">9 mins ago</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+        </table>
+    </div>
+
+
+    <a name='new-answer'></a>
+    <form id="post-form" action="/questions/4663725/answer/submit" method="post">
+        <h2 class="space">Your Answer</h2>
+        
+<script src="http://sstatic.net/Js/wmd.js?v=90ee36ec1c46" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    
+    var enableImageUploads = true; 
+    
+    $(function() { 
+        editorReady('answer', true/* confirm navigation after wmd keypress */);
+    });  
+</script>
+
+
+<div id="post-editor">
+
+    
+    <div id="wmd-container">
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+
+    <div id="wmd-preview"></div>
+
+
+    <div id="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="f0a7847599c4a212cd893bd052a9e7ac">
+        <input id="author" name="author" type="text">
+    </div>
+</div>   
+    <div class="form-item">
+        <table>
+        <tr>
+        <td class="vm open-id-login">
+            <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="/users/login?returnurl=%2fquestions%2f4663725%2fiphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite">log in</a>
+            <script type="text/javascript">
+                master.onClickDraftSave('#login-link');
+            </script>
+        </td>
+
+    
+        <td class="orcell">
+            <div class="orword">or</div>
+            <div class="orline"></div>
+        </td>
+        <td class="vm">
+            <div>
+                <label for="display-name">Name</label>
+                <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+            </div>
+            <div>
+                <label for="m-address">Email</label>
+                <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                <span class="edit-field-overlay">never shown</span>
+            </div>
+            <div>
+                <label for="home-page">Home Page</label>
+                <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+            </div>
+        </td>
+    
+        </tr>
+        </table>
+    </div>
+    
+        <div class="form-submit cbt"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"></div>
+    
+    </form>
+    
+    
+
+    <h2 class="bottom-notice">
+        
+        Not the answer you're looking for? 
+        
+        Browse other questions tagged <a href="/questions/tagged/iphone" class="post-tag" title="show questions tagged 'iphone'" rel="tag">iphone</a> <a href="/questions/tagged/button" class="post-tag" title="show questions tagged 'button'" rel="tag">button</a> <a href="/questions/tagged/keyboard" class="post-tag" title="show questions tagged 'keyboard'" rel="tag">keyboard</a> <a href="/questions/tagged/uitextview" class="post-tag" title="show questions tagged 'uitextview'" rel="tag">uitextview</a> <a href="/questions/tagged/dismiss" class="post-tag" title="show questions tagged 'dismiss'" rel="tag">dismiss</a> 
+        
+        or <a href="/questions/ask">ask your own question</a>.
+        
+    </h2>
+
+</div>
+</div>
+
+<div id="sidebar">
+
+
+<div class="module newuser newuser-greeting" style="display:none">
+    <h4>Hello World!</h4>
+    <div>
+        <p>Stack Overflow is a <b>collaboratively edited question and answer site for programmers</b> &ndash; regardless of platform or language. It's 100% free, no registration required.</p>
+        <p class="ar"><a href="/about">about &raquo;</a>&nbsp;&nbsp;&nbsp;<a href="/faq">faq &raquo;</a></p>
+    </div>
+</div>
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged">
+            <a href="/questions/tagged/iphone" class="post-tag" title="show questions tagged 'iphone'" rel="tag">iphone</a>&nbsp;<span class="item-multiplier">&times;&nbsp;58099</span><br>
+<a href="/questions/tagged/button" class="post-tag" title="show questions tagged 'button'" rel="tag">button</a>&nbsp;<span class="item-multiplier">&times;&nbsp;1823</span><br>
+<a href="/questions/tagged/keyboard" class="post-tag" title="show questions tagged 'keyboard'" rel="tag">keyboard</a>&nbsp;<span class="item-multiplier">&times;&nbsp;1135</span><br>
+<a href="/questions/tagged/uitextview" class="post-tag" title="show questions tagged 'uitextview'" rel="tag">uitextview</a>&nbsp;<span class="item-multiplier">&times;&nbsp;420</span><br>
+<a href="/questions/tagged/dismiss" class="post-tag" title="show questions tagged 'dismiss'" rel="tag">dismiss</a>&nbsp;<span class="item-multiplier">&times;&nbsp;37</span><br>
+
+        </div> 
+        <p class="label-key">asked</p>
+        <p class="label-value" title="2011-01-11 23:09:45Z">today</p>
+        <p class="label-key">viewed</p>
+        <p class="label-value">17 times</p>
+
+        <p class="label-key">latest activity</p>
+        <p class="label-value"><a href="?lastactivity" class="lastactivity-link" title="2011-01-11 23:28:11Z">today</a></p>
+
+    </div>
+    
+    
+        <script type="text/javascript">
+            var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine2.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=iphone,button,keyboard,uitextview,dismiss"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);
+        </script>
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2">
+    </div>
+
+    
+    <div>
+        <script type="text/javascript">
+            (function(){var g="http://careers.stackoverflow.com/Ad/js",c=location.search=="?golarge",a=location.hash.indexOf("#ninjas")>-1,b="Pretty";(function(){var b="min-height:248px;margin:15px 0",c=$("<div>").addClass("hireme").attr("style",b),a=$("<div>").html(c);document.write(a.html())})();$(function(){a&&$("#adzerk1").html("").append($("<div>").attr("id","herebeninjas")).attr("id","stop-adzerk");setTimeout(i,1200);setTimeout(h,300)});var h=function(){c=c||e();a=a||d();b=c?"Large":b;f()},i=function(){var a=$("div.hireme");a.each(function(){$(this).html().replace(" ","").length==0&&$(this).remove()})},e=function(){return $("#careersadsdoublehigh").length>0},d=function(){return $("#herebeninjas").length>0},f=function(){var a=$("<script>").attr("src",j()).attr("type","text/javascript");$("body").append(a)},j=function(){return g+"?style="+b+"&gobanner="+a.toString()}})();
+        </script>
+    </div>
+ 
+         
+
+
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="/questions/3848125/dismissing-the-keyboard-using-firstresponder" class="question-hyperlink">Dismissing the keyboard using firstResponder</a>
+</div>
+<div class="spacer">
+<a href="/questions/2717452/iphone-dismiss-modal-view-by-a-uitabbarcontroller" class="question-hyperlink">iPhone - Dismiss modal view by a UITabBarController</a>
+</div>
+<div class="spacer">
+<a href="/questions/4503226/how-can-i-tell-when-go-was-hit-from-the-keyboard-with-a-uiwebviews-keyboard" class="question-hyperlink">How can I tell when go was hit from the keyboard with a UIWebview&#39;s keyboard?</a>
+</div>
+<div class="spacer">
+<a href="/questions/3596628/dismissing-ipad-modal-view-messes-up-the-uisplitview-panels" class="question-hyperlink">Dismissing iPad modal view messes up the UISplitView panels</a>
+</div>
+<div class="spacer">
+<a href="/questions/3346023/resignfirstresponder-doesnt-dismiss-the-keyboard-iphone" class="question-hyperlink">ResignFirstResponder doesn&#39;t dismiss the keyboard (iPhone)</a>
+</div>
+<div class="spacer">
+<a href="/questions/4397778/uialertview-disappears-when-app-goes-to-background-and-come-back-to-foreground" class="question-hyperlink">UIAlertView disappears when app goes to background and come back to foreground</a>
+</div>
+<div class="spacer">
+<a href="/questions/4360140/adding-done-button-to-only-number-pad-keyboard-on-iphone" class="question-hyperlink">Adding Done Button to Only Number Pad Keyboard on iPhone</a>
+</div>
+<div class="spacer">
+<a href="/questions/4537174/dismiss-popover-view-by-pressing-on-a-button-on-content-view" class="question-hyperlink">Dismiss popover view by pressing on a button on content view</a>
+</div>
+<div class="spacer">
+<a href="/questions/2715042/uialertview-dismiss-not-really-dismissed" class="question-hyperlink">UIAlertView Dismiss Not Really Dismissed</a>
+</div>
+<div class="spacer">
+<a href="/questions/2944191/iphone-dismiss-multiple-viewcontrollers" class="question-hyperlink">iPhone - dismiss multiple ViewControllers</a>
+</div>
+<div class="spacer">
+<a href="/questions/4005135/best-way-to-dismiss-the-keyboard-in-uitextview" class="question-hyperlink">Best way to dismiss the keyboard in UITextView?</a>
+</div>
+<div class="spacer">
+<a href="/questions/703754/how-to-dismiss-keyboard-for-uitextview-with-return-key" class="question-hyperlink">How to dismiss keyboard for UITextView with return key?</a>
+</div>
+<div class="spacer">
+<a href="/questions/4203323/uitextview-with-done-button-and-return-key" class="question-hyperlink">UITextView with &ldquo;Done&rdquo; button *and* &ldquo;Return&rdquo; key?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1401559/iphone-sdk-uitextview-doesnt-show-the-newline-key" class="question-hyperlink">iPhone-SDK: UITextView doesn&#39;t show the newline key</a>
+</div>
+<div class="spacer">
+<a href="/questions/3153994/dismiss-uipopovercontroller-if-visible-after-tapping-a-uibarbuttonitem" class="question-hyperlink">dismiss UIPopoverController (if visible) after tapping a UIBarButtonItem</a>
+</div>
+<div class="spacer">
+<a href="/questions/3224458/after-dismissing-modal-view-parent-view-seems-deallocated" class="question-hyperlink">after dismissing modal view, parent view seems deallocated??</a>
+</div>
+<div class="spacer">
+<a href="/questions/3229755/dismissing-multiple-modal-view-controllers-at-once" class="question-hyperlink">Dismissing multiple modal view controllers at once?</a>
+</div>
+<div class="spacer">
+<a href="/questions/3283819/how-do-i-make-my-progress-dialog-dismiss-after-webview-is-loaded" class="question-hyperlink">How do i make my progress dialog dismiss after webview is loaded?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2642405/dismissing-ipad-uipopovercontroller-when-barbuttonitem-is-pushed-while-its-open" class="question-hyperlink">Dismissing iPad UIPopoverController when BarButtonItem is pushed while it&#39;s open</a>
+</div>
+<div class="spacer">
+<a href="/questions/2679910/correct-way-of-showing-consecutive-modalviews" class="question-hyperlink">Correct way of showing consecutive modalViews</a>
+</div>
+<div class="spacer">
+<a href="/questions/2569340/adding-barbuttons-to-a-uinavigationbar-after-presenting-a-modal-view-controller" class="question-hyperlink">Adding BarButtons to a UINavigationBar after presenting a modal view controller.</a>
+</div>
+<div class="spacer">
+<a href="/questions/2297780/how-can-i-present-self-as-a-modal-view-controller" class="question-hyperlink">How can i present self as a modal view controller?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2314357/mpmovieplayer-dismiss-when-pressed" class="question-hyperlink">MPMoviePlayer dismiss when pressed</a>
+</div>
+<div class="spacer">
+<a href="/questions/2321376/iphone-view-origin-changes-after-presentmodal" class="question-hyperlink">Iphone View origin changes after presentModal</a>
+</div>
+<div class="spacer">
+<a href="/questions/2330188/how-do-i-detect-when-a-uiactionsheet-has-been-dismissed" class="question-hyperlink">How do I detect when a UIActionSheet has been dismissed?</a>
+</div>
+
+    </div>
+    </div>
+
+</div>
+
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/4663725" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+
+
+<script type="text/javascript" src="/posts/4663725/ivc/5d64"></script>
+<noscript>
+    <div><img src="/posts/4663725/ivc/5d64" class="dno" alt=""></div>
+</noscript>
+
+<div style="display:none" id="prettify-lang">default</div>
+
+
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <span title="2 hours ago" class="new-blog-post">new</span> <a href="http://blog.stackoverflow.com">blog</a> |
+                <a href="http://data.stackexchange.com">data</a> |
+                <a href="http://itc.conversationsnetwork.org/series/stackoverflow.html">podcast</a> |
+                <a href="/legal">legal</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b>
+
+                 | <b><a href="http://meta.stackoverflow.com">feedback always welcome</a></b>
+
+                <div id="footer-sites">
+                    <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp; <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackapps.com">api/apps</a>&nbsp; <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers</a>&nbsp; <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp; <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp; <span style="color:#969696;font-size:140%">&#9632;</span>
+<a href="http://meta.stackoverflow.com">meta</a>&nbsp; <span style="color:#46937D;font-size:140%">&#9632;</span>&nbsp;<a href="http://area51.stackexchange.com">area&nbsp;51</a>&nbsp; <span style="color:#C0D0DC;font-size:140%">&#9632;</span>&nbsp;<a href="http://webapps.stackexchange.com">webapps</a>&nbsp; <span style="color:#000;font-size:140%">&#9632;</span>&nbsp;<a href="http://gaming.stackexchange.com">gaming</a>&nbsp; <span style="color:#dd4814;font-size:140%">&#9632;</span>&nbsp;<a href="http://askubuntu.com">ubuntu</a>&nbsp; <span style="color:#9ce4fe;font-size:140%">&#9632;</span>&nbsp;<a href="http://webmasters.stackexchange.com">webmasters</a>&nbsp; <span style="color:#cf4d3f;font-size:140%">&#9632;</span>&nbsp;<a href="http://cooking.stackexchange.com">cooking</a>&nbsp; <span style="color:#f4f28d;font-size:140%">&#9632;</span>&nbsp;<a href="http://gamedev.stackexchange.com">game development</a>&nbsp; <span style="color:#0f3559;font-size:140%">&#9632;</span>&nbsp;<a href="http://math.stackexchange.com">math</a>&nbsp; <span style="color:#f2f2f2;font-size:140%">&#9632;</span>&nbsp;<a href="http://photo.stackexchange.com">photography</a>&nbsp; <span style="color:#037187;font-size:140%">&#9632;</span>&nbsp;<a href="http://stats.stackexchange.com">stats</a>&nbsp; <span style="color:#f1e7cc;font-size:140%">&#9632;</span>&nbsp;<a href="http://tex.stackexchange.com">tex</a>&nbsp; <span style="color:#e1cdae;font-size:140%">&#9632;</span>&nbsp;<a href="http://english.stackexchange.com">english</a>&nbsp; <span style="color:#a2d9f6;font-size:140%">&#9632;</span>&nbsp;<a href="http://cstheory.stackexchange.com">theoretical cs</a>&nbsp; <span style="color:#1b3e6c;font-size:140%">&#9632;</span>&nbsp;<a href="http://programmers.stackexchange.com">programmers</a>
+                </div>
+            </div>
+            <div id="footer-flair">
+	            <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="cc-wiki-link"></a>
+                <div id="svnrev">revision: 2011.1.11.5</div>                
+            
+            </div>
+            <div id="copyright">
+                site design / logo &copy; 2011 stack overflow internet services, inc; 
+                <a href="/questions-all">user contributions</a> licensed under <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>    
+    
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();_qoptions={qacct:"p-c1rF4kxgLUzNc"};</script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+
+</body>
+</html>

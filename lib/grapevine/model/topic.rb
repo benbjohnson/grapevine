@@ -1,14 +1,14 @@
 module Grapevine
   class Topic
     include ::DataMapper::Resource
-    has n, :message
+    has n, :messages
+    has n, :tags
 
     property :id,     Serial
     property :source, String
     property :name,   String
-    property :url,    String
+    property :url,    Text
     property :created_at, DateTime
-    has_tags
     timestamps :at
 
     validates_presence_of :source

@@ -39,20 +39,20 @@ Connection: close
         "list": [{
             "trackback_permalink": "http://twitter.com/coplusk/status/23909517578211328",
             "trackback_author_url": "http://twitter.com/coplusk",
-            "content": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching",
+            "content": "[suggestedshare] http://bit.ly/dEeDxh Tom Waddington - caching",
             "trackback_date": 1294535447,
             "topsy_author_img": "http://s.twimg.com/a/1292392187/images/default_profile_1_normal.png",
             "hits": 1,
-            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Ftomwaddington%2Fcutoutandkeep%2Fcommit%2F1e4117f001d224cd15039ff030bc39b105f24a13&utm_source=otter",
+            "topsy_trackback_url": "http://topsy.com/trackback?url=https%3A%2F%2Fgithub.com%2Ftomwaddington%2Fsuggestedshare%2Fcommit%2F1e4117f001d224cd15039ff030bc39b105f24a13&utm_source=otter",
             "firstpost_date": 1294535447,
-            "url": "https://github.com/tomwaddington/cutoutandkeep/commit/1e4117f001d224cd15039ff030bc39b105f24a13",
+            "url": "https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13",
             "trackback_author_nick": "coplusk",
-            "highlight": "[cutoutandkeep] http://bit.ly/dEeDxh Tom Waddington - caching ",
+            "highlight": "[suggestedshare] http://bit.ly/dEeDxh Tom Waddington - caching ",
             "topsy_author_url": "http://topsy.com/twitter/coplusk?utm_source=otter",
             "mytype": "link",
             "score": 0.195851,
             "trackback_total": 1,
-            "title": "cutoutandkeep]  Tom Waddington - caching"
+            "title": "suggestedshare]  Tom Waddington - caching"
         }],
         "offset": 0
     }
