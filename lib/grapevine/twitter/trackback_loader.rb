@@ -74,7 +74,7 @@ module Grapevine
                 duplicate_count = 0
               end
 
-              puts "Added message: #{message.source_id} / #{message.author}"
+              Grapevine.log.debug "Added message: #{message.source_id} / #{message.author}"
 
               # Attempt to create a topic
               topic = create_topic(message)
@@ -123,8 +123,9 @@ module Grapevine
           topic = Grapevine::Topic.new(:source => name, :url => url)
           set_topic_name(topic)
           
+          Grapevine.log.debug "#{topic.errors.full_messages.join(',')}" unless topic.valid?
           topic.save
-          puts "Added topic: #{topic.name}"
+          Grapevine.log.debug "Added topic: #{topic.name}"
         end
         
         return topic

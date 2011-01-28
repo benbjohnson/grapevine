@@ -13,6 +13,12 @@ program :name, 'Grapevine'
 program :version, '1.0.0'
 program :description, 'A simple message aggregator.'
 
+# Setup file logger
+global_option '--log FILE', 'Specifies the log file to use.' do |file|
+  Grapevine.log.outputters << Log4r::FileOutputter.new('grapevine', :filename => file)
+end
+
+
 command :load do |c|
   c.syntax = 'grapevine load [name] [options]'
   c.description = 'Runs a specified loader.'

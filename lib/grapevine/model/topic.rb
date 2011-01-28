@@ -7,8 +7,8 @@ module Grapevine
     property :id,          Serial
     property :source,      String
     property :name,        String
-    property :description, Text
-    property :url,         Text
+    property :description, Text, :length => 65535
+    property :url,         Text, :length => 65535
     property :created_at,  DateTime
     timestamps :at
 

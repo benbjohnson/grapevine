@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency('commander', '~> 4.0.3')
   s.add_dependency('terminal-table', '~> 1.4.2')
   s.add_dependency('slowweb', '~> 0.1.1')
+  s.add_dependency('log4r', '~> 1.1.6')
 
   s.add_development_dependency('rspec', '~> 2.4.0')
   s.add_development_dependency('fakeweb', '~> 1.3.0')
