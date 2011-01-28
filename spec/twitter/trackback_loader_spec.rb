@@ -49,6 +49,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
     message.url.should       == 'https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13'
+    message.content.should   == '[suggestedshare] http://bit.ly/dEeDxh Tom Waddington - caching'
   end
 
   it 'should page search results' do

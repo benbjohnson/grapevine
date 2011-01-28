@@ -76,7 +76,11 @@ module Grapevine
 
               puts "Added message: #{message.source_id} / #{message.author}"
 
+              # Attempt to create a topic
               topic = create_topic(message)
+              next if topic.nil?
+              
+              # Assign topic and save message
               message.topic = topic
               message.save
             end
@@ -103,6 +107,7 @@ module Grapevine
         message.source_id  = id
         message.author     = item.trackback_author_nick
         message.url        = item.url
+        message.content    = item.content
         message.created_at = Time.at(item.trackback_date)
         
         return message
