@@ -56,7 +56,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     message.source.should    == 'twitter-github'
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
-    message.url.should       == 'https://github.com/tomwaddington/suggestedshare'
+    message.url.should       == 'https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13'
   end
 
   it 'should filter out non-project URLs' do
@@ -76,14 +76,14 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     register_github_user_uri('tomwaddington', 'tomwaddington')
     register_github_repo_uri('tomwaddington', 'suggestedshare', 'tomwaddington_suggestedshare')
     register_github_repo_language_uri('tomwaddington', 'suggestedshare', 'tomwaddington_suggestedshare')
-    messages = @loader.load()
-    @loader.aggregate(messages)
+    @loader.load()
     
     topics = Grapevine::Topic.all
     topics.length.should == 1
     topic = *topics
     topic.source.should == 'twitter-github'
-    topic.name.should == 'suggestedshare: Share content on Facebook with like-minded friends'
+    topic.name.should == 'suggestedshare'
+    topic.description.should == 'Share content on Facebook with like-minded friends'
     topic.url.should == 'https://github.com/tomwaddington/suggestedshare'
     topic.tags.length.should == 1
     topic.tags[0].type.should == 'language'

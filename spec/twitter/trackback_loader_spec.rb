@@ -37,10 +37,12 @@ describe Grapevine::Twitter::TrackbackLoader do
   end
 
   it 'should return a single trackback' do
+    FakeWeb.register_uri(:get, "https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13", :body => '<html><title>tomwaddington/suggestedshare - GitHub</title></html>')
     register_topsy_search_uri('site_github_single')
     
-    messages = @loader.load()
+    @loader.load()
     
+    messages = Grapevine::Message.all
     messages.length.should == 1
     message = *messages
     message.source.should    == 'twitter-trackback'
@@ -50,23 +52,34 @@ describe Grapevine::Twitter::TrackbackLoader do
   end
 
   it 'should page search results' do
+    FakeWeb.register_uri(:get, "https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/austintimeexchange/oscurrency/commit/35f06c911f2c9b521e24bf73f936b8c783d52e17", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/batterseapower/concurrency-test", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/daneharrigan/like_a_boss", :body => '')
     register_topsy_search_uri('site_github_page1', :page => 1, :perpage => 2)
     register_topsy_search_uri('site_github_page2', :page => 2, :perpage => 2)
     
     @loader.per_page = 2
-    messages = @loader.load()
+    @loader.load()
     
-    messages.length.should == 4
+    Grapevine::Message.all.length.should == 4
   end
 
   it 'should not load messages that have already been loaded' do
+    FakeWeb.register_uri(:get, "https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/austintimeexchange/oscurrency/commit/35f06c911f2c9b521e24bf73f936b8c783d52e17", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/batterseapower/concurrency-test", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/daneharrigan/like_a_boss", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/mangos/one/commit/ee572c8ee639a13bdf9d81d7e451c94e0cb1baa7", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/mongodb/mongo/commit/bcb127567ddd8690ec1897a34c3fb81f27866b6b", :body => '')
+    FakeWeb.register_uri(:get, "https://github.com/marak/session.js", :body => '')
     register_topsy_search_uri('site_github')
-    messages = @loader.load()
-    messages.length.should == 7
+    @loader.load()
+    Grapevine::Message.all.length.should == 7
 
     register_topsy_search_uri('site_github_later')
-    messages = @loader.load()
-    messages.length.should == 2
+    @loader.load()
+    Grapevine::Message.all.length.should == 9
   end
 
 
@@ -78,8 +91,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     register_topsy_search_uri('site_stackoverflow_single', :site => 'stackoverflow.com')
     FakeWeb.register_uri(:get, "http://stackoverflow.com/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite", :response => IO.read("#{@fixtures_dir}/stackoverflow/4663725"))
     @loader.site = 'stackoverflow.com'
-    messages = @loader.load()
-    @loader.aggregate(messages)
+    @loader.load()
     
     topics = Grapevine::Topic.all
     topics.length.should == 1

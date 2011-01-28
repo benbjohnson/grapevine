@@ -5,6 +5,13 @@ module Grapevine
     # trackbacks as they come in.
     class TrackbackLoader < Grapevine::Loader
       ##########################################################################
+      # Setup
+      ##########################################################################
+
+      Grapevine::Loader.register('twitter-trackback', self)
+      
+
+      ##########################################################################
       # Constructor
       ##########################################################################
 
@@ -53,7 +60,16 @@ module Grapevine
             
             # Create and append message
             message = create_message(item)
-            messages << message unless message.nil?
+            
+            if !message.nil?
+              puts "Added message: #{message.source_id} / #{message.author}"
+
+              topic = create_topic(message)
+              message.topic = topic
+              message.save
+              
+              messages << message
+            end
           end
 
           page += 1
@@ -62,20 +78,6 @@ module Grapevine
         return messages
       end
 
-      # Groups a list of messages into a series of topics.
-      def aggregate(messages)
-        messages.each do |message|
-          # Find existing topic by URL
-          topic = Grapevine::Topic.first(:url => message.url)
-          
-          # Create new topic if one doesn't exist
-          topic = create_topic(message) if topic.nil?
-          
-          message.topic = topic
-          message.save
-        end
-      end
-      
 
       ##########################################################################
       # Protected Methods
@@ -99,25 +101,33 @@ module Grapevine
       end
 
       # Creates a topic from a message
-      def create_topic(message)
-        topic = Grapevine::Topic.new(:source => name, :url => message.url)
-        topic.name = create_topic_name(topic)
+      def create_topic(message, url=nil)
+        url ||= message.url
         
-        topic.save
+        topic = Grapevine::Topic.first(:url => url)
+        
+        if topic.nil?
+          topic = Grapevine::Topic.new(:source => name, :url => url)
+          set_topic_name(topic)
+          topic.save
+
+          puts "Added topic: #{topic.name}"
+        end
         
         return topic
       end
 
       # Generates a topic name
-      def create_topic_name(topic)
+      def set_topic_name(topic)
         topic_name = ''
         
         # Find topic name from the title of the URL
         open(topic.url) do |f|
           m, topic_name = *f.read.match(/<title>(.+?)<\/title>/)
+          topic_name ||= '<unknown>'
         end
 
-        return topic_name[0..250]
+        topic.name = topic_name[0..250]
       end
     end
   end

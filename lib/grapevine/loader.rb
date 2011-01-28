@@ -1,9 +1,27 @@
 module Grapevine
-  # This is an abstract base class for all loaders in the system. All loaders
-  # must implement both the load() method and the aggregate method. The load
-  # method will retrieve a list of messages and the aggregate method will group
-  # those messages into relavent topics.
+  # This is an abstract base class for all loaders in the system. The loader
+  # imports messages in from a source and aggregates them into topics.
   class Loader
+    ############################################################################
+    # Static Attributes
+    ############################################################################
+    
+    # Registers a class by name
+    def self.register(name, clazz)
+      @classes ||= {}
+      @classes[name] = clazz
+    end
+    
+    # Creates an instance of a loader by name
+    def self.create(name)
+      @classes ||= {}
+      clazz = @classes[name]
+      raise "No loader has been registered as: #{name}" if clazz.nil?
+      instance = clazz.new
+    end
+
+    
+
     ############################################################################
     # Public Attributes
     ############################################################################
@@ -18,11 +36,6 @@ module Grapevine
 
     # Loads a list of messages.
     def load()
-      []
-    end
-
-    # Groups a list of messages into topics.
-    def aggregate(messages)
       []
     end
   end

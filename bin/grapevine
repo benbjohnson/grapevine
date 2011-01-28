@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+dir = File.dirname(File.expand_path(__FILE__))
+$:.unshift(File.join(dir, '..', 'lib'))
+
+require 'rubygems'
+require 'grapevine'
+require 'grapevine/setup'
+require 'commander/import'
+require 'terminal-table/import'
+
+program :name, 'Grapevine'
+program :version, '1.0.0'
+program :description, 'A simple message aggregator.'
+
+command :load do |c|
+  c.syntax = 'grapevine load [name] [options]'
+  c.description = 'Runs a specified loader.'
+  c.when_called do|args, options|
+    name = *args
+    raise 'Loader name is required' if name.nil?
+    loader = Grapevine::Loader.create(name)
+    loader.load()
+  end
+end
+
+command :'show topics' do |c|
+  c.syntax = 'grapevine show topics'
+  c.description = 'Displays the topics in the database.'
+  c.when_called do|args, options|
+    topics = Grapevine::Topic.all
+    
+    if topics.length == 0
+      say "No topics exist in the database"
+    else
+      user_table = table do |t|
+        t.headings = 'ID', 'Msgs', 'Name'
+        topics.each do |topic|
+          t << [topic.id, topic.messages.length, topic.name[0..60]]
+        end
+      end
+      
+      puts user_table
+    end
+  end
+end
+
+command :clean do |c|
+  c.syntax = 'grapevine clean'
+  c.description = 'Removes all data from the grapevine database.'
+  c.when_called do|args, options|
+    Grapevine::Topic.destroy
+  end
+end
+

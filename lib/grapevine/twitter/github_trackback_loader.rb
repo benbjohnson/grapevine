@@ -5,6 +5,13 @@ module Grapevine
     # API.
     class GitHubTrackbackLoader < TrackbackLoader
       ##########################################################################
+      # Setup
+      ##########################################################################
+
+      Grapevine::Loader.register('twitter-github', self)
+      
+
+      ##########################################################################
       # Constructor
       ##########################################################################
 
@@ -34,39 +41,50 @@ module Grapevine
         username, repo_name = *extract_repo_info(item.url)
 
         # Skip tweet if it's not a GitHub project url
-        return nil if username.nil?
-        
-        # Otherwise create the message and reformat the URL
-        message = super(item)
-        message.url = "https://github.com/#{username}/#{repo_name}"
-        
-        return message
+        if username.nil?
+          return nil
+        else
+          return super(item)
+        end
       end
 
       # Creates a topic from a message
-      def create_topic(message)
-        topic = super(message)
-                
+      def create_topic(message, url=nil)
+        # Reformat the URL
         username, repo_name = *extract_repo_info(message.url)
-        repo = Octopi::User.find(username).repository(repo_name)
+        url = "https://github.com/#{username}/#{repo_name}"
 
-        get_repository_language_tags(repo).each do |language|
-          tag = Grapevine::Tag.create(
-            :topic => topic,
-            :type  => 'language',
-            :value => language
-          )
+        topic = super(message, url)
+        
+        # Ignore GitHub info if call fails
+        begin
+          repo = Octopi::User.find(username).repository(repo_name)
+
+          get_repository_language_tags(repo).each do |language|
+            tag = Grapevine::Tag.create(
+              :topic => topic,
+              :type  => 'language',
+              :value => language
+            )
+          end
+        rescue Exception
         end
         
         return topic
       end
 
       # Generates a topic name
-      def create_topic_name(topic)
+      def set_topic_name(topic)
         username, repo_name = *extract_repo_info(topic.url)
-        repo = Octopi::User.find(username).repository(repo_name)
-        topic_name = "#{repo.name}: #{repo.description}"
-        return topic_name[0..250]
+        
+        # Use repo name if GitHub call fails
+        begin
+          repo = Octopi::User.find(username).repository(repo_name)
+          topic.name        = repo.name[0..250]
+          topic.description = repo.description
+        rescue Exception
+          topic.name = repo_name[0..250]
+        end
       end
       
       

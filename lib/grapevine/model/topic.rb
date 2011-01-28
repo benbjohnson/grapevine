@@ -4,11 +4,12 @@ module Grapevine
     has n, :messages
     has n, :tags
 
-    property :id,     Serial
-    property :source, String
-    property :name,   String
-    property :url,    Text
-    property :created_at, DateTime
+    property :id,          Serial
+    property :source,      String
+    property :name,        String
+    property :description, Text
+    property :url,         Text
+    property :created_at,  DateTime
     timestamps :at
 
     validates_presence_of :source
