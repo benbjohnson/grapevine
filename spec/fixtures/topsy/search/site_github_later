@@ -37,7 +37,7 @@ Connection: close
         "last_offset": 10,
         "hidden": 0,
         "list": [{
-            "trackback_permalink": "",
+            "trackback_permalink": "http://twitter.com/nodemodules/status/239038732512313",
             "trackback_author_url": "http://twitter.com/topsy_top20k_technology",
             "content": "And MongoDB became even faster:",
             "trackback_date": 1299535447,
@@ -55,7 +55,7 @@ Connection: close
             "title": "Commit bcb127567ddd8690ec1897a34c3fb81f27866b6b to mongodb's mongo - GitHub"
         },
         {
-            "trackback_permalink": "http://twitter.com/nodemodules/status/239038732529",
+            "trackback_permalink": "http://twitter.com/nodemodules/status/239038712323",
             "trackback_author_url": "http://twitter.com/nodemodules",
             "content": "sesh (0.1.0) - http://bit.ly/fiBwma",
             "trackback_date": 1298535447,

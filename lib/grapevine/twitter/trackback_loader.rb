@@ -18,6 +18,7 @@ module Grapevine
       def initialize
         @name = 'twitter-trackback'
         @per_page = 10
+        @duplicate_max_count = 10
       end
 
 
@@ -31,8 +32,9 @@ module Grapevine
       # The number of items to return per page.
       attr_accessor :per_page
 
-      # A timestamp for the most recent trackback that was loaded.
-      attr_accessor :timestamp
+      # The number of times duplicates can be found before the search is
+      # stopped.
+      attr_accessor :duplicate_max_count
       
 
       ##########################################################################
@@ -44,38 +46,44 @@ module Grapevine
         raise 'Cannot load trackbacks without a site defined' if site.nil?
         
         # Paginate through search
-        messages = []
         page = 1
-        last_loaded_at = timestamp
+        duplicate_count = 0
         
         begin
           results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
         
           # Loop over links and load trackbacks for each one
           results.list.each do |item|
-            # Stop searching if we are past our last timestamp
-            created_at = Time.at(item.trackback_date)
-            page = 99999 && break if !last_loaded_at.nil? && created_at <= last_loaded_at
-            self.timestamp = created_at if timestamp.nil?
-            
             # Create and append message
             message = create_message(item)
             
             if !message.nil?
+              # Skip message if it's a duplicate
+              if Grapevine::Message.first(:source_id => message.source_id)
+                duplicate_count += 1
+                
+                # Exit if we've encountered too many duplicates
+                if duplicate_count > duplicate_max_count
+                  return
+                # Otherwise continue to next item
+                else
+                  next;
+                end
+              # Reset the duplicate count if we see a new tweet
+              else
+                duplicate_count = 0
+              end
+
               puts "Added message: #{message.source_id} / #{message.author}"
 
               topic = create_topic(message)
               message.topic = topic
               message.save
-              
-              messages << message
             end
           end
 
           page += 1
         end while results.last_offset < results.total && page < 10
-        
-        return messages
       end
 
 
@@ -89,8 +97,8 @@ module Grapevine
       def create_message(item)
         # Extract tweet identifier
         m, id = *item.trackback_permalink.match(/(\d+)$/)
-
-        message = Message.new()
+        
+        message = Grapevine::Message.new()
         message.source     = name
         message.source_id  = id
         message.author     = item.trackback_author_nick
@@ -109,8 +117,8 @@ module Grapevine
         if topic.nil?
           topic = Grapevine::Topic.new(:source => name, :url => url)
           set_topic_name(topic)
+          
           topic.save
-
           puts "Added topic: #{topic.name}"
         end
         

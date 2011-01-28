@@ -49,10 +49,10 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
   it 'should return a single trackback with a GitHub project root URL' do
     register_topsy_search_uri('site_github_single')
     
-    messages = @loader.load()
+    @loader.load()
     
-    messages.length.should == 1
-    message = *messages
+    Grapevine::Message.all.length.should == 1
+    message = Grapevine::Message.first
     message.source.should    == 'twitter-github'
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
@@ -62,8 +62,8 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
   it 'should filter out non-project URLs' do
     register_topsy_search_uri('site_github_nonproject')
     
-    messages = @loader.load()
-    messages.length.should == 0
+    @loader.load()
+    Grapevine::Message.all.length.should == 0
   end
 
 
@@ -78,9 +78,8 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     register_github_repo_language_uri('tomwaddington', 'suggestedshare', 'tomwaddington_suggestedshare')
     @loader.load()
     
-    topics = Grapevine::Topic.all
-    topics.length.should == 1
-    topic = *topics
+    Grapevine::Topic.all.length.should == 1
+    topic = Grapevine::Topic.first
     topic.source.should == 'twitter-github'
     topic.name.should == 'suggestedshare'
     topic.description.should == 'Share content on Facebook with like-minded friends'

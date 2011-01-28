@@ -84,6 +84,7 @@ module Grapevine
           topic.description = repo.description
         rescue Exception
           topic.name = repo_name[0..250]
+          topic.description = ''
         end
       end
       
