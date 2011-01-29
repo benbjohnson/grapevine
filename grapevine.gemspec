@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency('rspec', '~> 2.4.0')
   s.add_development_dependency('fakeweb', '~> 1.3.0')
+  s.add_development_dependency('timecop', '~> 0.3.5')
 
   s.test_files   = Dir.glob('test/**/*')
   s.files        = Dir.glob('lib/**/*') + %w(README.md)

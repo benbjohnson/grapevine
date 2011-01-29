@@ -3,6 +3,7 @@ module Grapevine
     include ::DataMapper::Resource
     has n, :messages
     has n, :tags
+    has n, :notifications
 
     property :id,          Serial
     property :source,      String

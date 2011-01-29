@@ -36,7 +36,6 @@ module Grapevine
 
     # Loads a list of messages.
     def load()
-      []
     end
   end
 end

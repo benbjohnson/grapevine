@@ -12,6 +12,7 @@ require 'slowweb'
 
 require 'grapevine/loader'
 require 'grapevine/model'
+require 'grapevine/notifier'
 require 'grapevine/twitter'
 require 'grapevine/version'
 

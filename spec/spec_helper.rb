@@ -4,9 +4,11 @@ $:.unshift(dir)
 
 require 'rubygems'
 require 'bundler/setup'
+require 'grapevine'
+
 require 'rspec'
 require 'fakeweb'
-require 'grapevine'
+require 'timecop'
 
 # Configure RSpec
 Rspec.configure do |c|
