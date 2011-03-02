@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 03 Feb 2011 05:11:47 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+MIME-Version: 1.0
+Content-Length: 400
+
+{
+    "status_code": 200,
+    "status_txt": "OK",
+    "data": {
+        "long_url": "http:\/\/github.com\/benbjohnson\/mockdown",
+        "url": "http:\/\/bit.ly\/fYL1vu",
+        "hash": "fYL1vu",
+        "global_hash": "ciu4hS",
+        "new_hash": 1
+    }
+}

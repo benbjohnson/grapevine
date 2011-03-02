@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'rubygems'
 require 'rake'
 require 'rake/rdoctask'
-require 'rake/testtask'
+require 'rspec/core/rake_task'
 require 'grapevine'
 
 #############################################################################
@@ -13,10 +13,12 @@ require 'grapevine'
 #
 #############################################################################
 
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'rcov/rcovtask'
+Rcov::RcovTask.new do |t|
+  t.libs << "spec"
+  t.test_files = FileList['spec/**/*_spec.rb']
+  t.rcov_opts = ['--exclude', 'gems\/,spec\/']
+  t.verbose = true
 end
 
 Rake::RDocTask.new do |rdoc|

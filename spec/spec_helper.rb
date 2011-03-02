@@ -17,4 +17,6 @@ end
 
 # Setup DataMapper
 DataMapper.setup(:default, 'sqlite::memory:')
-DataMapper.auto_upgrade!
+
+# Turn off log
+Grapevine.log.outputters = []

@@ -8,8 +8,11 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'topsy'
 require 'octopi'
+require 'twitter'
+require 'bitly'
 require 'slowweb'
 
+require 'grapevine/config'
 require 'grapevine/loader'
 require 'grapevine/model'
 require 'grapevine/notifier'
@@ -19,6 +22,8 @@ require 'grapevine/version'
 # Setup the request governor
 SlowWeb.limit('github.com', 60, 60)
 
+# Use Bit.ly API v3
+Bitly.use_api_version_3
 
 module Grapevine
   def self.log

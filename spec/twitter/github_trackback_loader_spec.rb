@@ -13,7 +13,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
   end
 
   after do
-      FakeWeb.clean_registry
+    FakeWeb.clean_registry
   end
 
   def register_topsy_search_uri(filename, options={})

@@ -1,13 +1,12 @@
 module Grapevine
   module Twitter
-    # This class sends a notification via a Twitter tweet of the next most
-    # popular topic.
-    class TweetNotifier < Grapevine::Loader
+    # This class sends notifications as Twitter tweets.
+    class TweetNotifier < Grapevine::Notifier
       ##########################################################################
       # Setup
       ##########################################################################
 
-      Grapevine::Notifier.register('twitter-trackback', self)
+      Grapevine::Notifier.register('twitter', self)
       
 
       ##########################################################################
@@ -15,9 +14,7 @@ module Grapevine
       ##########################################################################
 
       def initialize
-        @name = 'twitter-trackback'
-        @per_page = 10
-        @duplicate_max_count = 10
+        super('twitter')
       end
 
 
@@ -25,122 +22,55 @@ module Grapevine
       # Public Attributes
       ##########################################################################
 
-      # A URL describing the domain to search within.
-      attr_accessor :site
+      # The frequency that notifications can be sent. This is specified in
+      # seconds.
+      attr_accessor :frequency
 
-      # The number of items to return per page.
-      attr_accessor :per_page
-
-      # The number of times duplicates can be found before the search is
-      # stopped.
-      attr_accessor :duplicate_max_count
+      # The OAuth token used to authenticate to Twitter.
+      attr_accessor :oauth_token
+      
+      # The OAuth token secret used to authenticate to Twitter.
+      attr_accessor :oauth_token_secret
       
 
       ##########################################################################
       # Public Methods
       ##########################################################################
 
-      # Loads a list of trackbacks from Twitter for a given site.
-      def load()
-        raise 'Cannot load trackbacks without a site defined' if site.nil?
-        
-        # Paginate through search
-        page = 1
-        duplicate_count = 0
-        
-        begin
-          results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
-        
-          # Loop over links and load trackbacks for each one
-          results.list.each do |item|
-            # Create and append message
-            message = create_message(item)
-            
-            if !message.nil?
-              # Skip message if it's a duplicate
-              if Grapevine::Message.first(:source_id => message.source_id)
-                duplicate_count += 1
-                
-                # Exit if we've encountered too many duplicates
-                if duplicate_count > duplicate_max_count
-                  return
-                # Otherwise continue to next item
-                else
-                  next;
-                end
-              # Reset the duplicate count if we see a new tweet
-              else
-                duplicate_count = 0
-              end
+      # Sends a notification for the most popular topic.
+      def send()
+        # Wait at least the number of seconds specified in frequency before
+        # sending another notification
+        if !frequency.nil? && frequency > 0
+          notification = Grapevine::Notification.first(
+            :source => self.name,
+            :order => :created_at.desc
+          )
 
-              Grapevine.log.debug "Added message: #{message.source_id} / #{message.author}"
-
-              # Attempt to create a topic
-              topic = create_topic(message)
-              next if topic.nil?
-              
-              # Assign topic and save message
-              message.topic = topic
-              message.save
-            end
+          if notification && Time.now-Time.parse(notification.created_at.to_s) < frequency
+            return
           end
-
-          page += 1
-        end while results.last_offset < results.total && page < 10
-      end
-
-
-      ##########################################################################
-      # Protected Methods
-      ##########################################################################
-
-      protected
-      
-      # Creates a message from a tweet.
-      def create_message(item)
-        # Extract tweet identifier
-        m, id = *item.trackback_permalink.match(/(\d+)$/)
-        
-        message = Grapevine::Message.new()
-        message.source     = name
-        message.source_id  = id
-        message.author     = item.trackback_author_nick
-        message.url        = item.url
-        message.content    = item.content
-        message.created_at = Time.at(item.trackback_date)
-        
-        return message
-      end
-
-      # Creates a topic from a message
-      def create_topic(message, url=nil)
-        url ||= message.url
-        
-        topic = Grapevine::Topic.first(:url => url)
-        
-        if topic.nil?
-          topic = Grapevine::Topic.new(:source => name, :url => url)
-          set_topic_name(topic)
-          
-          Grapevine.log.debug "#{topic.errors.full_messages.join(',')}" unless topic.valid?
-          topic.save
-          Grapevine.log.debug "Added topic: #{topic.name}"
         end
         
-        return topic
-      end
-
-      # Generates a topic name
-      def set_topic_name(topic)
-        topic_name = ''
+        # Find most popular topic
+        topic = popular_topics.first
+        return false if topic.nil?
         
-        # Find topic name from the title of the URL
-        open(topic.url) do |f|
-          m, topic_name = *f.read.match(/<title>(.+?)<\/title>/)
-          topic_name ||= '<unknown>'
+        # Shorten the topic URL
+        bitly = Bitly.new(Grapevine::Config.bitly_username, Grapevine::Config.bitly_api_key)
+        url = bitly.shorten(topic.url)
+
+        # Configure Twitter API
+        ::Twitter.configure do |config|
+          config.consumer_key = Grapevine::Config.twitter_consumer_key
+          config.consumer_secret = Grapevine::Config.twitter_consumer_secret
+          config.oauth_token = self.oauth_token
+          config.oauth_token_secret = self.oauth_token_secret
         end
 
-        topic.name = topic_name[0..250]
+        # Send tweet
+        client = ::Twitter::Client.new
+        client.update("xyz");
       end
     end
   end
