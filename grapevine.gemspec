@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
   s.add_dependency('log4r', '~> 1.1.6')
 
   s.add_development_dependency('rspec', '~> 2.4.0')
+  s.add_development_dependency('mocha', '~> 0.9.12')
+  s.add_development_dependency('unindentable', '~> 0.1.0')
   s.add_development_dependency('fakeweb', '~> 1.3.0')
   s.add_development_dependency('timecop', '~> 0.3.5')
   s.add_development_dependency('rcov', '~> 0.9.9')

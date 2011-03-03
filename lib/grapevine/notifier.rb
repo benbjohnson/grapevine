@@ -6,28 +6,61 @@ module Grapevine
     # Static Attributes
     ############################################################################
     
-    # Registers a class by name
-    def self.register(name, clazz)
+    # Registers a class by type
+    def self.register(type, clazz)
       @classes ||= {}
-      @classes[name] = clazz
-    end
-    
-    # Creates an instance of a notifier by name
-    def self.create(name)
-      @classes ||= {}
-      clazz = @classes[name]
-      raise "No notifier has been registered as: #{name}" if clazz.nil?
-      instance = clazz.new
+      @classes[type] = clazz
     end
 
-    
+    # Creates an instance of a notifier by type
+    #
+    # @param [String] type  the type of notifier to create.
+    # @param [Hash] options  a list of options to set on the notifier.
+    #
+    # @return [Grapevine::Notifier]  the new instance of a notifier.
+    def self.create(type, options={})
+      @classes ||= {}
+      clazz = @classes[type]
+      raise "No notifier has been registered as: #{type}" if clazz.nil?
+      notifier = clazz.new
+
+      # Set options
+      options = options.symbolize
+      
+      # Required attributes
+      name = options.delete(:name)
+      raise "Name required on notifier definition" if name.nil?
+      raise "Frequency required on notifier: #{name}" if options[:frequency].nil?
+
+      # Set the notifier name
+      notifier.name = name
+      
+      # Parse frequency
+      notifier.frequency = Date.parse_time_period(options[:frequency])
+      raise "Invalid frequency: #{frequency}" if notifier.frequency.nil?
+      options.delete(:frequency)
+
+      # Parse window
+      if options.key?(:window)
+        notifier.window = Date.parse_time_period(options[:window])
+        raise "Invalid window: #{window}" if notifier.window.nil?
+        options.delete(:window)
+      end
+      
+      # Set attributes on the notifier
+      options.each do |k, v|
+        notifier.__send__ "#{k.to_s}=", v
+      end
+
+      return notifier
+    end
+
 
     ############################################################################
     # Constructor
     ############################################################################
 
-    def initialize(name)
-      @name = name
+    def initialize()
     end
 
 
@@ -35,8 +68,8 @@ module Grapevine
     # Public Attributes
     ############################################################################
 
-    # The name of this notifier type.
-    attr_reader :name
+    # The name of this notifier.
+    attr_accessor :name
 
     # The name of the source to retrieve topics from.
     attr_accessor :source

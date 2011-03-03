@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>lib/grapevine/model.rb</title>
+    <title>lib/grapevine/ext/hash.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Grapevine C0 Coverage Information - RCov</h1>
-    <h2>lib/grapevine/model.rb</h2>
+    <h2>lib/grapevine/ext/hash.rb</h2>
 
     
 
@@ -27,9 +27,9 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="lib-grapevine-model_rb.html">lib/grapevine/model.rb</a></td>
-            <td class='right_align'><tt>11</tt></td>
-            <td class='right_align'><tt>8</tt></td>
+            <td class="left_align"><a href="lib-grapevine-ext-hash_rb.html">lib/grapevine/ext/hash.rb</a></td>
+            <td class='right_align'><tt>12</tt></td>
+            <td class='right_align'><tt>9</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -57,67 +57,73 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> DataMapper::Model.raise_on_save_failure = true</pre></td>
+            <td><pre><a name="line1">1</a> class Hash</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line2">2</a> </pre></td>
+            <td><pre><a name="line2">2</a>   # Returns a new hash that has all string keys converted to symbols.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line3">3</a> DataMapper::Property::String.length(255)</pre></td>
+            <td><pre><a name="line3">3</a>   def symbolize</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line4">4</a> DataMapper::Property::Boolean.allow_nil(false)</pre></td>
+            <td><pre><a name="line4">4</a>     hash = {}</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line5">5</a> </pre></td>
+            <td><pre><a name="line5">5</a>     </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a> require 'grapevine/model/topic'</pre></td>
+            <td><pre><a name="line6">6</a>     each do |k, v|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line7">7</a> require 'grapevine/model/tag'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line8">8</a> require 'grapevine/model/notification'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line9">9</a> require 'grapevine/model/message'</pre></td>
+            <td><pre><a name="line7">7</a>       hash[k.to_sym] = v</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line10">10</a> </pre></td>
+            <td><pre><a name="line8">8</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line9">9</a>     </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a> DataMapper.finalize</pre></td>
+            <td><pre><a name="line10">10</a>     return hash</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line11">11</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line12">12</a> end</pre></td>
           </tr>
         
       </tbody>

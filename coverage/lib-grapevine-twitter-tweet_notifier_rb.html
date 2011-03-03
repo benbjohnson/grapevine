@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="lib-grapevine-twitter-tweet_notifier_rb.html">lib/grapevine/twitter/tweet_notifier.rb</a></td>
-            <td class='right_align'><tt>77</tt></td>
-            <td class='right_align'><tt>36</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>88.31%</tt></div>
+            <td class='right_align'><tt>76</tt></td>
+            <td class='right_align'><tt>35</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>52.63%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:88px"></div>
-            <div class="uncovered" style="width:12px"></div>
+            <div class="covered" style="width:53px"></div>
+            <div class="uncovered" style="width:47px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>77.78%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>28.57%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:78px"></div>
-            <div class="uncovered" style="width:22px"></div>
+            <div class="covered" style="width:29px"></div>
+            <div class="uncovered" style="width:71px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -153,13 +153,13 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line17">17</a>         super('twitter')</pre></td>
+            <td><pre><a name="line17">17</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line18">18</a>       end</pre></td>
+            <td><pre><a name="line18">18</a> </pre></td>
           </tr>
         
           
@@ -171,355 +171,349 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line20">20</a> </pre></td>
+            <td><pre><a name="line20">20</a>       ##########################################################################</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line21">21</a>       ##########################################################################</pre></td>
+            <td><pre><a name="line21">21</a>       # Public Attributes</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line22">22</a>       # Public Attributes</pre></td>
+            <td><pre><a name="line22">22</a>       ##########################################################################</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line23">23</a>       ##########################################################################</pre></td>
+            <td><pre><a name="line23">23</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line24">24</a> </pre></td>
+            <td><pre><a name="line24">24</a>       # The frequency that notifications can be sent. This is specified in</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line25">25</a>       # The frequency that notifications can be sent. This is specified in</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line26">26</a>       # seconds.</pre></td>
+            <td><pre><a name="line25">25</a>       # seconds.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line27">27</a>       attr_accessor :frequency</pre></td>
+            <td><pre><a name="line26">26</a>       attr_accessor :frequency</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line28">28</a> </pre></td>
+            <td><pre><a name="line27">27</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line29">29</a>       # The OAuth token used to authenticate to Twitter.</pre></td>
+            <td><pre><a name="line28">28</a>       # The OAuth token used to authenticate to Twitter.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line30">30</a>       attr_accessor :oauth_token</pre></td>
+            <td><pre><a name="line29">29</a>       attr_accessor :oauth_token</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line31">31</a>       </pre></td>
+            <td><pre><a name="line30">30</a>       </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line32">32</a>       # The OAuth token secret used to authenticate to Twitter.</pre></td>
+            <td><pre><a name="line31">31</a>       # The OAuth token secret used to authenticate to Twitter.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line33">33</a>       attr_accessor :oauth_token_secret</pre></td>
+            <td><pre><a name="line32">32</a>       attr_accessor :oauth_token_secret</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line34">34</a>       </pre></td>
+            <td><pre><a name="line33">33</a>       </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line35">35</a> </pre></td>
+            <td><pre><a name="line34">34</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line36">36</a>       ##########################################################################</pre></td>
+            <td><pre><a name="line35">35</a>       ##########################################################################</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line37">37</a>       # Public Methods</pre></td>
+            <td><pre><a name="line36">36</a>       # Public Methods</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line38">38</a>       ##########################################################################</pre></td>
+            <td><pre><a name="line37">37</a>       ##########################################################################</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line39">39</a> </pre></td>
+            <td><pre><a name="line38">38</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line40">40</a>       # Sends a notification for the most popular topic.</pre></td>
+            <td><pre><a name="line39">39</a>       # Sends a notification for the most popular topic.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line41">41</a>       def send()</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line42">42</a>         # Wait at least the number of seconds specified in frequency before</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line43">43</a>         # sending another notification</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line44">44</a>         if !frequency.nil? &amp;&amp; frequency &gt; 0</pre></td>
+            <td><pre><a name="line40">40</a>       def send()</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line45">45</a>           notification = Grapevine::Notification.first(</pre></td>
+            <td><pre><a name="line41">41</a>         # Wait at least the number of seconds specified in frequency before</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line46">46</a>             :source =&gt; self.name,</pre></td>
+            <td><pre><a name="line42">42</a>         # sending another notification</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line47">47</a>             :order =&gt; :created_at.desc</pre></td>
+            <td><pre><a name="line43">43</a>         if !frequency.nil? &amp;&amp; frequency &gt; 0</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line48">48</a>           )</pre></td>
+            <td><pre><a name="line44">44</a>           notification = Grapevine::Notification.first(</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line49">49</a> </pre></td>
+            <td><pre><a name="line45">45</a>             :source =&gt; self.name,</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line50">50</a>           if notification &amp;&amp; Time.now-Time.parse(notification.created_at.to_s) &lt; frequency</pre></td>
+            <td><pre><a name="line46">46</a>             :order =&gt; :created_at.desc</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line51">51</a>             return</pre></td>
+            <td><pre><a name="line47">47</a>           )</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line52">52</a>           end</pre></td>
+            <td><pre><a name="line48">48</a> </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line53">53</a>         end</pre></td>
+            <td><pre><a name="line49">49</a>           if notification &amp;&amp; Time.now-Time.parse(notification.created_at.to_s) &lt; frequency</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line54">54</a>         </pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line50">50</a>             return</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line55">55</a>         # Find most popular topic</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line51">51</a>           end</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line56">56</a>         topic = popular_topics.first</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line52">52</a>         end</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line57">57</a>         return false if topic.nil?</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line53">53</a>         </pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line58">58</a>         </pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line54">54</a>         # Find most popular topic</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line59">59</a>         # Shorten the topic URL</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line55">55</a>         topic = popular_topics.first</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line60">60</a>         bitly = Bitly.new(Grapevine::Config.bitly_username, Grapevine::Config.bitly_api_key)</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line56">56</a>         return false if topic.nil?</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line61">61</a>         url = bitly.shorten(topic.url)</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line57">57</a>         </pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line62">62</a> </pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line58">58</a>         # Shorten the topic URL</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line63">63</a>         # Configure Twitter API</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line59">59</a>         bitly = Bitly.new(Grapevine::Config.bitly_username, Grapevine::Config.bitly_api_key)</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line64">64</a>         ::Twitter.configure do |config|</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line60">60</a>         url = bitly.shorten(topic.url)</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line65">65</a>           config.consumer_key = Grapevine::Config.twitter_consumer_key</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line61">61</a> </pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line66">66</a>           config.consumer_secret = Grapevine::Config.twitter_consumer_secret</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line62">62</a>         # Configure Twitter API</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line67">67</a>           config.oauth_token = self.oauth_token</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line63">63</a>         ::Twitter.configure do |config|</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line68">68</a>           config.oauth_token_secret = self.oauth_token_secret</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line64">64</a>           config.consumer_key = Grapevine::Config.twitter_consumer_key</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line69">69</a>         end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line65">65</a>           config.consumer_secret = Grapevine::Config.twitter_consumer_secret</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line70">70</a> </pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line66">66</a>           config.oauth_token = self.oauth_token</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line71">71</a>         # Send tweet</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line67">67</a>           config.oauth_token_secret = self.oauth_token_secret</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line72">72</a>         client = ::Twitter::Client.new</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line68">68</a>         end</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line73">73</a>         client.update(&quot;xyz&quot;);</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line69">69</a> </pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line74">74</a>       end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line70">70</a>         # Send tweet</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line75">75</a>     end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line71">71</a>         client = ::Twitter::Client.new</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line76">76</a>   end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line72">72</a>         client.update(&quot;xyz&quot;);</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line77">77</a> end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line73">73</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line74">74</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line75">75</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line76">76</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Tue Mar 01 15:12:10 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Thu Mar 03 08:09:59 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

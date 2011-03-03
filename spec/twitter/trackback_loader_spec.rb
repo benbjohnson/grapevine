@@ -9,6 +9,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     DataMapper.auto_migrate!
     FakeWeb.allow_net_connect = false
     @loader = Grapevine::Twitter::TrackbackLoader.new
+    @loader.name = 'my_loader'
     @loader.site = 'github.com'
     @fixtures_dir = File.join(File.dirname(File.expand_path(__FILE__)), '..', 'fixtures')
   end
@@ -45,7 +46,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     messages = Grapevine::Message.all
     messages.length.should == 1
     message = *messages
-    message.source.should    == 'twitter-trackback'
+    message.source.should    == 'my_loader'
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
     message.url.should       == 'https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13'
@@ -97,7 +98,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     topics = Grapevine::Topic.all
     topics.length.should == 1
     topic = *topics
-    topic.source.should == 'twitter-trackback'
+    topic.source.should == 'my_loader'
     topic.name.should == 'iPhone - keyboard with OK button to dismiss, with return key accepted in the UITextView - Stack Overflow'
     topic.url.should == 'http://stackoverflow.com/questions/4663725/iphone-keyboard-with-ok-button-to-dismiss-with-return-key-accepted-in-the-uite'
   end

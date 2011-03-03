@@ -14,7 +14,6 @@ module Grapevine
       ##########################################################################
 
       def initialize
-        super('twitter')
       end
 
 
@@ -26,6 +25,9 @@ module Grapevine
       # seconds.
       attr_accessor :frequency
 
+      # The Twitter username that will post the status update.
+      attr_accessor :username
+      
       # The OAuth token used to authenticate to Twitter.
       attr_accessor :oauth_token
       

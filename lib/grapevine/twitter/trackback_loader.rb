@@ -16,7 +16,6 @@ module Grapevine
       ##########################################################################
 
       def initialize
-        @name = 'twitter-trackback'
         @per_page = 10
         @duplicate_max_count = 10
       end

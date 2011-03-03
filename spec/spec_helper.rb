@@ -7,12 +7,14 @@ require 'bundler/setup'
 require 'grapevine'
 
 require 'rspec'
+require 'mocha'
+require 'unindentable'
 require 'fakeweb'
 require 'timecop'
 
 # Configure RSpec
 Rspec.configure do |c|
-  c.mock_with :rspec
+  c.mock_with :mocha
 end
 
 # Setup DataMapper

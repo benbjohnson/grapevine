@@ -8,7 +8,8 @@ describe Grapevine::Notifier do
   before do
     DataMapper.auto_migrate!
     create_data()
-    @notifier = Grapevine::Notifier.new('notifier')
+    @notifier = Grapevine::Notifier.new()
+    @notifier.name = 'my-notifier'
   end
 
   after do
@@ -49,6 +50,34 @@ describe Grapevine::Notifier do
   ##############################################################################
 
   #####################################
+  # Static methods
+  #####################################
+
+  it 'should create a notifier' do
+    loader = Grapevine::Notifier.create(
+      'twitter',
+      :name => 'foo',
+      :frequency => '5m',
+      :username => 'github_js',
+      :oauth_token => 'foo',
+      :oauth_token_secret => 'bar',
+      :source => 'github',
+      :window => '1d',
+      :tags => ['language:javascript', 'language:ruby']
+    )
+    loader.class.should == Grapevine::Twitter::TweetNotifier
+    loader.name.should == 'foo'
+    loader.frequency.should == 300
+    loader.username.should == 'github_js'
+    loader.oauth_token.should == 'foo'
+    loader.oauth_token_secret.should == 'bar'
+    loader.source.should == 'github'
+    loader.window.should == 86_400
+    loader.tags.length.should == 2
+  end
+
+
+  #####################################
   # Topics
   #####################################
 
@@ -61,8 +90,8 @@ describe Grapevine::Notifier do
 
   it 'should filter out popular topics by notification window' do
     Timecop.freeze(Time.local(2010, 1, 8)) do
-      create_notification(@t0, 'notifier', Time.local(2010, 1, 1))
-      create_notification(@t1, 'notifier', Time.local(2010, 1, 4))
+      create_notification(@t0, 'my-notifier', Time.local(2010, 1, 1))
+      create_notification(@t1, 'my-notifier', Time.local(2010, 1, 4))
     
       @notifier.window = 84600 * 7   # 1 week
       topics = @notifier.popular_topics

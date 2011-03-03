@@ -9,6 +9,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     DataMapper.auto_migrate!
     FakeWeb.allow_net_connect = false
     @loader = Grapevine::Twitter::GitHubTrackbackLoader.new
+    @loader.name = 'my-github-loader'
     @fixtures_dir = File.join(File.dirname(File.expand_path(__FILE__)), '..', 'fixtures')
   end
 
@@ -53,7 +54,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     
     Grapevine::Message.all.length.should == 1
     message = Grapevine::Message.first
-    message.source.should    == 'twitter-github'
+    message.source.should    == 'my-github-loader'
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
     message.url.should       == 'https://github.com/tomwaddington/suggestedshare/commit/1e4117f001d224cd15039ff030bc39b105f24a13'
@@ -80,7 +81,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     
     Grapevine::Topic.all.length.should == 1
     topic = Grapevine::Topic.first
-    topic.source.should == 'twitter-github'
+    topic.source.should == 'my-github-loader'
     topic.name.should == 'suggestedshare'
     topic.description.should == 'Share content on Facebook with like-minded friends'
     topic.url.should == 'https://github.com/tomwaddington/suggestedshare'
