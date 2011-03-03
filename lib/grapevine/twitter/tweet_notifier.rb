@@ -40,10 +40,12 @@ module Grapevine
       ##########################################################################
 
       # Sends a notification for the most popular topic.
-      def send()
+      def send(options={})
+        force = options[:force]
+        
         # Wait at least the number of seconds specified in frequency before
         # sending another notification
-        if !frequency.nil? && frequency > 0
+        if !force && !frequency.nil? && frequency > 0
           notification = Grapevine::Notification.first(
             :source => self.name,
             :order => :created_at.desc

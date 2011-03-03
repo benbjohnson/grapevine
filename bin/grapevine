@@ -47,8 +47,8 @@ command :load do |c|
 end
 
 command :'show sources' do |c|
-  c.syntax = 'grapevine show source [name] [options]'
-  c.description = 'Shows details about a registered source.'
+  c.syntax = 'grapevine show source [options]'
+  c.description = 'Shows all registered sources.'
   c.when_called do|args, options|
     loaders = registry.loaders
     
@@ -62,6 +62,48 @@ command :'show sources' do |c|
         end
       end
       
+      puts tbl
+    end
+  end
+end
+
+
+################################################################################
+# Notifiers
+################################################################################
+
+command :notify do |c|
+  c.syntax = 'grapevine notify [name] [options]'
+  c.description = 'Manually sends a notification for a given notifier.'
+  c.option '--force', 'Ignores the frequency of notification when sending.'
+  c.when_called do|args, options|
+    name = *args
+    raise 'Notifier name is required' if name.nil?
+    notifier = registry.get_notifier(name)
+    raise "Notifier not found: #{name}" if notifier.nil?
+    notifier.send(:force => options.force)
+  end
+end
+
+command :'show notifiers' do |c|
+  c.syntax = 'grapevine show notifiers [options]'
+  c.description = 'Shows all registered notifiers.'
+  c.when_called do|args, options|
+    notifiers = registry.notifiers
+    
+    if notifiers.length == 0
+      puts "No notifiers have been registered."
+    else
+      tbl = table do |t|
+        t.headings = 'Name', 'Type', 'Frequency (s)'
+        notifiers.each do |notifier|
+          t << [
+            notifier.name,
+            notifier.class.to_s.split(':').pop,
+            notifier.frequency
+          ]
+        end
+      end      
       puts tbl
     end
   end

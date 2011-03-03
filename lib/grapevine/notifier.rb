@@ -87,7 +87,7 @@ module Grapevine
     ############################################################################
 
     # Sends a notification.
-    def send()
+    def send(options={})
     end
 
     
