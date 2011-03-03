@@ -35,6 +35,17 @@ describe Grapevine::Registry do
     @registry.loaders.length.should == 0
   end
 
+  it 'should retrieve loader by name' do
+    loader1 = Grapevine::Loader.new()
+    loader1.name = 'foo'
+    @registry.add_loader(loader1)
+    loader2 = Grapevine::Loader.new()
+    loader2.name = 'bar'
+    @registry.add_loader(loader2)
+    
+    @registry.get_loader('bar').should == loader2
+  end
+
 
   #####################################
   # Notifiers
@@ -51,6 +62,17 @@ describe Grapevine::Registry do
     @registry.add_notifier(notifier)
     @registry.remove_notifier(notifier)
     @registry.notifiers.length.should == 0
+  end
+
+  it 'should retrieve notifier by name' do
+    notifier1 = Grapevine::Notifier.new()
+    notifier1.name = 'foo'
+    @registry.add_notifier(notifier1)
+    notifier2 = Grapevine::Notifier.new()
+    notifier2.name = 'bar'
+    @registry.add_notifier(notifier2)
+    
+    @registry.get_notifier('bar').should == notifier2
   end
 
 

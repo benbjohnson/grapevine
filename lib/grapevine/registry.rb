@@ -45,6 +45,17 @@ module Grapevine
       @loaders.delete(loader)
     end
 
+    # Retrieves a registered loader by name.
+    #
+    # @param [String] name  the name of the loader.
+    #
+    # @return [Grapevine::Loader]  the loader with the given name.
+    def get_loader(name)
+      @loaders.each do |loader|
+        return loader if loader.name == name
+      end
+    end
+
 
     ###################################
     # Notifiers
@@ -62,6 +73,17 @@ module Grapevine
     # @param [Grapevine::Notifier] notifier  the notifier to remove.
     def remove_notifier(notifier)
       @notifiers.delete(notifier)
+    end
+
+    # Retrieves a registered notifier by name.
+    #
+    # @param [String] name  the name of the notifier.
+    #
+    # @return [Grapevine::Notifier]  the notifier with the given name.
+    def get_notifier(name)
+      @notifiers.each do |notifier|
+        return notifier if notifier.name == name
+      end
     end
 
 
