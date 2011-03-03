@@ -108,7 +108,9 @@ module Grapevine
         if tags && tags.length > 0
           found = false
           tags.each do |tag|
-            if topic.tags(:id => tag.id).length > 0
+            m, tag_type, tag_value = *tag.match(/^(\w+):(\w+)$/)
+            
+            if topic.tags(:type => tag_type, :value => tag_value).length > 0
               found = true
               break
             end

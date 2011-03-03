@@ -109,6 +109,32 @@ command :'show notifiers' do |c|
   end
 end
 
+command :'show notifier' do |c|
+  c.syntax = 'grapevine show notifier [name] [options]'
+  c.description = 'Shows details about a single registered notifier.'
+  c.when_called do|args, options|
+    name = *args
+    raise 'Notifier name is required' if name.nil?
+    notifier = registry.get_notifier(name)
+    raise "Notifier not found: #{name}" if notifier.nil?
+    
+    topics = notifier.popular_topics
+    
+    puts "Name:       #{notifier.name}"
+    puts "Source:     #{notifier.source}"
+    puts "Frequency:  #{notifier.frequency}s"
+    puts "Window:     #{notifier.window }s"
+    puts "Tags:       #{notifier.tags.join(',')}"
+    puts ""
+    puts "Popular Topics (#{topics.length})"
+    topics[0..9].each_index do |index|
+      topic = topics[index]
+      puts "#{index+1}. #{topic.name} (ID##{topic.id})"
+    end
+    puts ""
+  end
+end
+
 
 ################################################################################
 # View Data
@@ -117,8 +143,10 @@ end
 command :'show topics' do |c|
   c.syntax = 'grapevine show topics'
   c.description = 'Displays the topics in the database.'
+  c.option '--tag TAG', String, 'Filters the topics by tag.'
   c.when_called do|args, options|
     topics = Grapevine::Topic.all
+    tag = options.tag
     
     if topics.length == 0
       say "No topics exist in the database"
@@ -126,6 +154,17 @@ command :'show topics' do |c|
       user_table = table do |t|
         t.headings = 'ID', 'Msgs', 'Name', 'Description'
         topics.each do |topic|
+          # Filter by tag if specified
+          if !tag.nil?
+            match = false
+            topic.tags.each do |item|
+              if "#{item.type}:#{item.value}" == tag
+                match = true
+              end
+            end
+            next unless match
+          end
+          
           t << [topic.id, topic.messages.length, topic.name[0..20], topic.description[0..35]]
         end
       end
