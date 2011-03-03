@@ -23,21 +23,47 @@ end
 # Initialization
 ################################################################################
 
+config_file = File.expand_path('~/grapevine.yml')
 
+# Create a registry of all loaders and notifiers
+registry = Grapevine::Registry.new()
+registry.load_config(config_file)
 
 
 ################################################################################
-# Load
+# Source
 ################################################################################
 
 command :load do |c|
   c.syntax = 'grapevine load [name] [options]'
-  c.description = 'Runs a specified loader.'
+  c.description = 'Loads messages from a specified source.'
   c.when_called do|args, options|
     name = *args
-    raise 'Loader name is required' if name.nil?
-    loader = Grapevine::Loader.create(name)
+    raise 'Source name is required' if name.nil?
+    loader = registry.get_loader(name)
+    raise "Source not found: #{name}" if loader.nil?
     loader.load()
+  end
+end
+
+command :'show sources' do |c|
+  c.syntax = 'grapevine show source [name] [options]'
+  c.description = 'Shows details about a registered source.'
+  c.when_called do|args, options|
+    loaders = registry.loaders
+    
+    if loaders.length == 0
+      puts "No sources have been registered."
+    else
+      tbl = table do |t|
+        t.headings = 'Name', 'Type', 'Frequency (s)'
+        loaders.each do |loader|
+          t << [loader.name, loader.class.to_s.split(':').pop, loader.frequency]
+        end
+      end
+      
+      puts tbl
+    end
   end
 end
 
