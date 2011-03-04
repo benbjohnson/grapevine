@@ -18,7 +18,7 @@ module Grapevine
       def initialize
         super
         @site = 'github.com'
-        @language_threshold = 20
+        @language_threshold = 30
       end
 
 
