@@ -62,7 +62,7 @@ module Grapevine
         
         # Shorten the topic URL
         bitly = Bitly.new(Grapevine::Config.bitly_username, Grapevine::Config.bitly_api_key)
-        url = bitly.shorten(topic.url)
+        url = bitly.shorten(topic.url).short_url
 
         # Configure Twitter API
         ::Twitter.configure do |config|
@@ -72,9 +72,31 @@ module Grapevine
           config.oauth_token_secret = self.oauth_token_secret
         end
 
+        # Limit description length
+        description = topic.description
+        max_length = 140 - topic.name.length - url.length - username.length - 10
+        if description.length > max_length
+          # Try to cut off at the last space if possible
+          index = description.rindex(' ', max_length) || max_length
+          description = description[0..index-1]
+        end
+        
+        # Build tweet message
+        content = "#{topic.name} - #{description} #{url}"
+        
         # Send tweet
         client = ::Twitter::Client.new
-        client.update("xyz");
+        client.update(content);
+        
+        # Log notification
+        Grapevine::Notification.create(
+          :topic => topic,
+          :source => name,
+          :content => content,
+          :created_at => Time.now
+        )
+
+        Grapevine.log.debug "Notify: #{name} -> #{topic.name}"
       end
     end
   end

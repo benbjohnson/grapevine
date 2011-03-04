@@ -94,8 +94,8 @@ module Grapevine
     # Creates a set of loaders and notifiers based on a YAML config.
     #
     # @param [String] filename  the path to the YAML config file.
-    def load_config(filename)
-      data = YAML.load(IO.read(filename))
+    def load_config(filename='~/grapevine.yml')
+      data = YAML.load(IO.read(File.expand_path(filename)))
       
       # Create loaders
       if data.key?('sources') && data['sources'].is_a?(Array)

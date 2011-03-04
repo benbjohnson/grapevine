@@ -40,12 +40,7 @@ module Grapevine
     # The consumer secret used to login to Twitter's API.
     attr_accessor :twitter_consumer_secret
 
-    # The OAuth token used to login to Twitter's API.
-    attr_accessor :twitter_oauth_token
 
-    # The OAuth secret token used to login to Twitter's API.
-    attr_accessor :twitter_oauth_token_secret
-    
 
     ##########################################################################
     # Public Methods
@@ -64,7 +59,7 @@ module Grapevine
     # Loads the configuration from a file.
     #
     # @param [String] filename  the YAML configuration file to load.
-    def load_file(filename)
+    def load_file(filename='~/grapevine.yml')
       filename = File.expand_path(filename)
       hash = YAML.load(File.open(filename))
       load(hash)

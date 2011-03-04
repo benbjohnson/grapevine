@@ -10,24 +10,26 @@ require 'commander/import'
 require 'terminal-table/import'
 
 program :name, 'Grapevine'
-program :version, '1.0.0'
+program :version, Grapevine::VERSION
 program :description, 'A simple message aggregator.'
-
-# Setup file logger
-global_option '--log FILE', 'Specifies the log file to use.' do |file|
-  Grapevine.log.outputters << Log4r::FileOutputter.new('grapevine', :filename => file)
-end
 
 
 ################################################################################
 # Initialization
 ################################################################################
 
-config_file = File.expand_path('~/grapevine.yml')
+# Catch CTRL-C and exit cleanly
+trap("INT") do
+  puts
+  exit()
+end
+
+# Load configuration properties
+Grapevine::Config.load_file()
 
 # Create a registry of all loaders and notifiers
 registry = Grapevine::Registry.new()
-registry.load_config(config_file)
+registry.load_config()
 
 
 ################################################################################

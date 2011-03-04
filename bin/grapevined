@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+dir = File.dirname(File.expand_path(__FILE__))
+$:.unshift(File.join(dir, '..', 'lib'))
+
+require 'rubygems'
+require 'daemons'
+require 'grapevine'
+require 'grapevine/setup'
+
+# Catch CTRL-C and exit cleanly
+trap("INT") do
+  puts
+  exit()
+end
+
+Daemons.run_proc('grapevined') do
+  # Load configuration properties
+  Grapevine::Config.load_file()
+
+  # Create a registry of all loaders and notifiers
+  registry = Grapevine::Registry.new()
+  registry.load_config()
+  
+  loop do
+    # Run all registry loaders
+    Grapevine.log.debug("RUN")
+    
+    registry.loaders.each do |loader|
+      loader.load()
+    end
+
+    # Run all registry notifiers
+    registry.notifiers.each do |notifier|
+      notifier.send()
+    end
+
+    sleep(60)
+  end
+end
