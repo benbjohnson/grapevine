@@ -137,6 +137,20 @@ command :'show notifier' do |c|
   end
 end
 
+command :'clear notifications' do |c|
+  c.syntax = 'grapevine clear notifications [name] [options]'
+  c.description = 'Removes all notifications for a notifier.'
+  c.when_called do|args, options|
+    name = *args
+    raise 'Notifier name is required' if name.nil?
+    
+    notifications = Grapevine::Notification.all(:source => name)
+    count = notifications.length
+    notifications.destroy
+    puts "#{notifications.length} notifications were removed."
+  end
+end
+
 
 ################################################################################
 # View Data
