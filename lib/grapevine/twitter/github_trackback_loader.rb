@@ -60,11 +60,14 @@ module Grapevine
           repo = Octopi::User.find(username).repository(repo_name)
 
           get_repository_language_tags(repo).each do |language|
-            tag = Grapevine::Tag.create(
-              :topic => topic,
-              :type  => 'language',
-              :value => language
-            )
+            # Don't create duplicate tags
+            if topic.tags(:type => 'language', :value => language).nil?
+              tag = Grapevine::Tag.create(
+                :topic => topic,
+                :type  => 'language',
+                :value => language
+              )
+            end
           end
         rescue Exception
         end

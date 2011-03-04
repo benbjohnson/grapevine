@@ -23,9 +23,9 @@ Daemons.run_proc('grapevined') do
   registry.load_config()
   
   loop do
-    # Run all registry loaders
-    Grapevine.log.debug("RUN")
+    Grapevine.log.debug("===")
     
+    # Run all registry loaders
     registry.loaders.each do |loader|
       loader.load()
     end
@@ -35,6 +35,6 @@ Daemons.run_proc('grapevined') do
       notifier.send()
     end
 
-    sleep(60)
+    sleep(30)
   end
 end

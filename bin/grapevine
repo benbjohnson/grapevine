@@ -131,7 +131,7 @@ command :'show notifier' do |c|
     puts "Popular Topics (#{topics.length})"
     topics[0..9].each_index do |index|
       topic = topics[index]
-      puts "#{index+1}. #{topic.name} (ID##{topic.id})"
+      puts "#{index+1}. #{topic.name}"
     end
     puts ""
   end
@@ -153,7 +153,7 @@ end
 
 
 ################################################################################
-# View Data
+# Topics
 ################################################################################
 
 command :'show topics' do |c|
@@ -189,6 +189,31 @@ command :'show topics' do |c|
     end
   end
 end
+
+command :'show topic' do |c|
+  c.syntax = 'grapevine show topic [name] [options]'
+  c.description = 'Shows details about a single topic.'
+  c.when_called do|args, options|
+    name = *args
+    raise 'Topic name is required' if name.nil?
+    topic = Grapevine::Topic.first(:name => name)
+    raise "Topic not found: #{name}" if topic.nil?
+    
+    puts "Name: #{topic.name}"
+    puts "Desc: #{topic.description}"
+    puts "Tags"
+    topic.tags.each do |tag|
+      puts "- #{tag.type}:#{tag.value}"
+    end
+    puts ""
+    puts "Messages (#{topic.messages.length})"
+    topic.messages[0..9].each do |message|
+      puts "- #{message.source_id}: #{message.author}"
+    end
+    puts ""
+  end
+end
+
 
 command :'show messages' do |c|
   c.syntax = 'grapevine show messages [options]'
