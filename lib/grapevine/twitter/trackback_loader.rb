@@ -81,13 +81,14 @@ module Grapevine
               
               # Only count tweets from an author once
               if Grapevine::Message.first(:topic => topic, :author => message.author)
-                puts "skip! #{message.author}"
                 next
               end
 
               # Assign topic and save message
               message.topic = topic
               message.save
+
+              Grapevine.log.debug "MESSAGE: [#{message.author}] #{message.content}"
             end
           end
 

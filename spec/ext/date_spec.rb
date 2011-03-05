@@ -33,6 +33,10 @@ describe Date do
     Date.parse_time_period('4y').should == 126_144_000
   end
 
+  it 'should parse a compound time period' do
+    Date.parse_time_period('1y2M3w4d5h6m7s').should == 38_898_367
+  end
+
   it 'should return nil when parsing invalid format' do
     Date.parse_time_period('foo bar').should be_nil
   end

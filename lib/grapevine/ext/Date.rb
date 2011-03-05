@@ -5,30 +5,25 @@ class Date
   #
   # @return [Fixnum]  the amount of time in the period, in seconds.
   def self.parse_time_period(period)
-    return nil if period.nil?
+    return nil if period.nil? || period == ''
 
-    m, num, type = *period.match(/^(\d+)(s|m|h|d|w|M|y|)$/)
+    # Extract from format: _y_M_w_d_h_m_s
+    match, years, months, weeks, days, hours, mins, secs =
+      *period.match(/^(\d+y)?(\d+M)?(\d+w)?(\d+d)?(\d+h)?(\d+m)?(\d+s)?$/)
     
-    return nil if m.nil?
+    # Return nil if in invalid format
+    return nil if match.nil?
     
-    multiplier =
-      case type
-      when 's'
-        1
-      when 'm'
-        60
-      when 'h'
-        3600
-      when 'd'
-        86_400
-      when 'w'
-        604_800
-      when 'M'
-        2_592_000
-      when 'y'
-        31_536_000
-      end
+    # Sum all time parts
+    num = 0
+    num += years.to_i * 31_536_000
+    num += months.to_i * 2_592_000
+    num += weeks.to_i * 604_800
+    num += days.to_i * 86_400
+    num += hours.to_i * 3600
+    num += mins.to_i * 60
+    num += secs.to_i
     
-    return num.to_i * multiplier
+    return num
   end
 end
