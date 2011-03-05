@@ -51,26 +51,36 @@ module Grapevine
       def create_topic(message, url=nil)
         # Reformat the URL
         username, repo_name = *extract_repo_info(message.url)
-        url = "https://github.com/#{username}/#{repo_name}"
+        url = create_base_url(username, repo_name)
+        
+        # Do not create topic if is a duplicate from an author.
+        topic = Grapevine::Topic.first(:url => url)
+        if topic && topic.messages(:author => message.author).length > 0
+          return
+        end
 
         topic = super(message, url)
         
         # Ignore GitHub info if call fails
         begin
-          repo = Octopi::User.find(username).repository(repo_name)
+          # Only retrieve repository info if we don't have it yet
+          if topic.tags.length == 0
+            repo = Octopi::Repository.find(:user => username, :repo => repo_name)
+            topic.description = repo.description
 
-          get_repository_language_tags(repo).each do |language|
-            # Don't create duplicate tags
-            if topic.tags(:type => 'language', :value => language).length == 0
-              tag = Grapevine::Tag.create(
-                :topic => topic,
-                :type  => 'language',
-                :value => language
-              )
+            get_repository_language_tags(repo).each do |language|
+              # Don't create duplicate tags
+              if topic.tags(:type => 'language', :value => language).length == 0
+                tag = Grapevine::Tag.create(
+                  :topic => topic,
+                  :type  => 'language',
+                  :value => language
+                )
+              end
             end
           end
-        rescue Exception
-          Grapevine.log.error("Could not retrieve languages")
+        rescue Exception => e
+          Grapevine.log.error(e.to_s)
         end
         
         return topic
@@ -81,14 +91,7 @@ module Grapevine
         username, repo_name = *extract_repo_info(topic.url)
         
         # Use repo name if GitHub call fails
-        begin
-          repo = Octopi::User.find(username).repository(repo_name)
-          topic.name        = repo.name[0..250]
-          topic.description = repo.description
-        rescue Exception
-          topic.name = repo_name[0..250]
-          topic.description = ''
-        end
+        topic.name = repo_name[0..250]
       end
       
       
@@ -102,6 +105,11 @@ module Grapevine
         return (m ? [username, repo_name] : nil)
       end
 
+      # Generates the root URL for a GitHub project.
+      def create_base_url(username, repo_name)
+        return "https://github.com/#{username}/#{repo_name}"
+      end
+
       # Retrieves a list of language tags associated with a repository.
       def get_repository_language_tags(repo)
         lookup = repo.languages
@@ -109,10 +117,8 @@ module Grapevine
       
         # Find languages that meet the threshold
         languages = []
-        Grapevine.log.error("Could not retrieve languages")
         lookup.each_pair do |k,v|
           k = k.downcase.gsub(/\s+/, '-')
-          Grapevine.log.debug("LANG: #{k} #{v.to_i >= total*(language_threshold.to_f/100)}")
           languages << k if v.to_i >= total*(language_threshold.to_f/100)
         end
       

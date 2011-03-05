@@ -22,6 +22,9 @@ Daemons.run_proc('grapevined') do
   registry = Grapevine::Registry.new()
   registry.load_config()
   
+  Grapevine.log.debug("Loaders: #{registry.loaders.length}")
+  Grapevine.log.debug("Notifiers: #{registry.notifiers.length}")
+
   loop do
     Grapevine.log.debug("===")
     

@@ -121,6 +121,7 @@ command :'show notifier' do |c|
     raise "Notifier not found: #{name}" if notifier.nil?
     
     topics = notifier.popular_topics
+    notifications = Grapevine::Notification.all(:source => name)
     
     puts "Name:       #{notifier.name}"
     puts "Source:     #{notifier.source}"
@@ -132,6 +133,14 @@ command :'show notifier' do |c|
     topics[0..9].each_index do |index|
       topic = topics[index]
       puts "#{index+1}. #{topic.name}"
+    end
+    puts ""
+    puts "Recent Notifications (#{notifications.length})"
+    notifications[0..9].each_index do |index|
+      notification = notifications[index]
+      puts "#{index+1}. #{notification.created_at}"
+      puts notification.content
+      puts ""
     end
     puts ""
   end
