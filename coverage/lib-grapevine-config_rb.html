@@ -28,8 +28,8 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="lib-grapevine-config_rb.html">lib/grapevine/config.rb</a></td>
-            <td class='right_align'><tt>73</tt></td>
-            <td class='right_align'><tt>30</tt></td>
+            <td class='right_align'><tt>68</tt></td>
+            <td class='right_align'><tt>28</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -309,31 +309,31 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line43">43</a>     # The OAuth token used to login to Twitter's API.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line44">44</a>     attr_accessor :twitter_oauth_token</pre></td>
+            <td><pre><a name="line43">43</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line45">45</a> </pre></td>
+            <td><pre><a name="line44">44</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line46">46</a>     # The OAuth secret token used to login to Twitter's API.</pre></td>
+            <td><pre><a name="line45">45</a>     ##########################################################################</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line47">47</a>     attr_accessor :twitter_oauth_token_secret</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line46">46</a>     # Public Methods</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line47">47</a>     ##########################################################################</pre></td>
           </tr>
         
           
@@ -345,157 +345,127 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line49">49</a> </pre></td>
+            <td><pre><a name="line49">49</a>     # Loads the configuration from a hash.</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line50">50</a>     ##########################################################################</pre></td>
+            <td><pre><a name="line50">50</a>     #</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line51">51</a>     # Public Methods</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line52">52</a>     ##########################################################################</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line53">53</a>     </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line54">54</a>     # Loads the configuration from a hash.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line55">55</a>     #</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line56">56</a>     # @param [Hash] hash  a hash of configuration settings to set.</pre></td>
+            <td><pre><a name="line51">51</a>     # @param [Hash] hash  a hash of configuration settings to set.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line57">57</a>     def load(hash)</pre></td>
+            <td><pre><a name="line52">52</a>     def load(hash)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line58">58</a>       hash.each_pair do |key, value|</pre></td>
+            <td><pre><a name="line53">53</a>       hash.each_pair do |key, value|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line59">59</a>         mutator_name = &quot;#{key.to_s}=&quot;</pre></td>
+            <td><pre><a name="line54">54</a>         mutator_name = &quot;#{key.to_s}=&quot;</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line60">60</a>         self.__send__(mutator_name, value) if methods.include?(mutator_name)</pre></td>
+            <td><pre><a name="line55">55</a>         self.__send__(mutator_name, value) if methods.include?(mutator_name)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line61">61</a>       end</pre></td>
+            <td><pre><a name="line56">56</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line62">62</a>     end</pre></td>
+            <td><pre><a name="line57">57</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line63">63</a>     </pre></td>
+            <td><pre><a name="line58">58</a>     </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line64">64</a>     # Loads the configuration from a file.</pre></td>
+            <td><pre><a name="line59">59</a>     # Loads the configuration from a file.</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line65">65</a>     #</pre></td>
+            <td><pre><a name="line60">60</a>     #</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line66">66</a>     # @param [String] filename  the YAML configuration file to load.</pre></td>
+            <td><pre><a name="line61">61</a>     # @param [String] filename  the YAML configuration file to load.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line67">67</a>     def load_file(filename)</pre></td>
+            <td><pre><a name="line62">62</a>     def load_file(filename='~/grapevine.yml')</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line68">68</a>       filename = File.expand_path(filename)</pre></td>
+            <td><pre><a name="line63">63</a>       filename = File.expand_path(filename)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line69">69</a>       hash = YAML.load(File.open(filename))</pre></td>
+            <td><pre><a name="line64">64</a>       hash = YAML.load(File.open(filename))</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line70">70</a>       load(hash)</pre></td>
+            <td><pre><a name="line65">65</a>       load(hash)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line71">71</a>     end</pre></td>
+            <td><pre><a name="line66">66</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line72">72</a>   end</pre></td>
+            <td><pre><a name="line67">67</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line73">73</a> end</pre></td>
+            <td><pre><a name="line68">68</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Thu Mar 03 08:09:59 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Fri Mar 04 10:21:37 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

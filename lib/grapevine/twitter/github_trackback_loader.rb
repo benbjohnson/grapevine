@@ -61,7 +61,7 @@ module Grapevine
 
           get_repository_language_tags(repo).each do |language|
             # Don't create duplicate tags
-            if topic.tags(:type => 'language', :value => language).nil?
+            if topic.tags(:type => 'language', :value => language).length == 0
               tag = Grapevine::Tag.create(
                 :topic => topic,
                 :type  => 'language',
@@ -70,6 +70,7 @@ module Grapevine
             end
           end
         rescue Exception
+          Grapevine.log.error("Could not retrieve languages")
         end
         
         return topic
@@ -108,9 +109,11 @@ module Grapevine
       
         # Find languages that meet the threshold
         languages = []
+        Grapevine.log.error("Could not retrieve languages")
         lookup.each_pair do |k,v|
           k = k.downcase.gsub(/\s+/, '-')
-          languages << k if v >= total*(language_threshold/100)
+          Grapevine.log.debug("LANG: #{k} #{v.to_i >= total*(language_threshold.to_f/100)}")
+          languages << k if v.to_i >= total*(language_threshold.to_f/100)
         end
       
         return languages

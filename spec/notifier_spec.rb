@@ -105,7 +105,7 @@ describe Grapevine::Notifier do
     create_tag(@t0, 'language', 'javascript')
     create_tag(@t1, 'language', 'ruby')
 
-    @notifier.tags = Grapevine::Tag.all(:type => 'language', :value => 'javascript')
+    @notifier.tags = ['language:javascript']
     topics = @notifier.popular_topics
     topics.length.should == 1
     topics[0].should == @t0

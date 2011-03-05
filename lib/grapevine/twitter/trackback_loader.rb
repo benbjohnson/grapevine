@@ -75,8 +75,16 @@ module Grapevine
 
               # Attempt to create a topic
               topic = create_topic(message)
-              next if topic.nil?
+              if topic.nil?
+                next
+              end
               
+              # Only count tweets from an author once
+              if Grapevine::Message.first(:topic => topic, :author => message.author)
+                puts "skip! #{message.author}"
+                next
+              end
+
               # Assign topic and save message
               message.topic = topic
               message.save

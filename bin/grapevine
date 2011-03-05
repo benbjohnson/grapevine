@@ -201,7 +201,9 @@ command :'show topic' do |c|
     
     puts "Name: #{topic.name}"
     puts "Desc: #{topic.description}"
-    puts "Tags"
+    puts "URL: #{topic.url}"
+    puts ""
+    puts "Tags (#{topic.tags.length})"
     topic.tags.each do |tag|
       puts "- #{tag.type}:#{tag.value}"
     end

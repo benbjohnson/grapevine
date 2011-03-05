@@ -28,14 +28,14 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="lib-grapevine-twitter-trackback_loader_rb.html">lib/grapevine/twitter/trackback_loader.rb</a></td>
-            <td class='right_align'><tt>147</tt></td>
-            <td class='right_align'><tt>75</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>99.32%</tt></div>
+            <td class='right_align'><tt>150</tt></td>
+            <td class='right_align'><tt>77</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>99.33%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:99px"></div>
             <div class="uncovered" style="width:1px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>98.67%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>98.70%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:99px"></div>
             <div class="uncovered" style="width:1px"></div>
@@ -506,440 +506,458 @@
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line76">76</a>               Grapevine.log.debug &quot;Added message: #{message.source_id} / #{message.author}&quot;</pre></td>
-          </tr>
-        
-          
-          
           <tr class="inferred">
-            <td><pre><a name="line77">77</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line78">78</a>               # Attempt to create a topic</pre></td>
+            <td><pre><a name="line76">76</a>               # Attempt to create a topic</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line79">79</a>               topic = create_topic(message)</pre></td>
+            <td><pre><a name="line77">77</a>               topic = create_topic(message)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line80">80</a>               next if topic.nil?</pre></td>
+            <td><pre><a name="line78">78</a>               next if topic.nil?</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line81">81</a>               </pre></td>
+            <td><pre><a name="line79">79</a>               </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line82">82</a>               # Assign topic and save message</pre></td>
+            <td><pre><a name="line80">80</a>               # Only count tweets from an author once</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line83">83</a>               message.topic = topic</pre></td>
+            <td><pre><a name="line81">81</a>               if Grapevine::Message.first(:topic =&gt; topic, :author =&gt; message.author)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line84">84</a>               message.save</pre></td>
+            <td><pre><a name="line82">82</a>                 next</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line85">85</a>             end</pre></td>
+            <td><pre><a name="line83">83</a>               end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line86">86</a>           end</pre></td>
+            <td><pre><a name="line84">84</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line87">87</a> </pre></td>
+            <td><pre><a name="line85">85</a>               # Assign topic and save message</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line88">88</a>           page += 1</pre></td>
+            <td><pre><a name="line86">86</a>               message.topic = topic</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line89">89</a>         end while results.last_offset &lt; results.total &amp;&amp; page &lt; 10</pre></td>
+            <td><pre><a name="line87">87</a>               message.save</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line90">90</a>       end</pre></td>
+            <td><pre><a name="line88">88</a>             end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line91">91</a> </pre></td>
+            <td><pre><a name="line89">89</a>           end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line92">92</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line93">93</a>       ##########################################################################</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line94">94</a>       # Protected Methods</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line95">95</a>       ##########################################################################</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line96">96</a> </pre></td>
+            <td><pre><a name="line90">90</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line97">97</a>       protected</pre></td>
+            <td><pre><a name="line91">91</a>           page += 1</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line92">92</a>         end while results.last_offset &lt; results.total &amp;&amp; page &lt; 10</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line98">98</a>       </pre></td>
+            <td><pre><a name="line93">93</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line99">99</a>       # Creates a message from a tweet.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line100">100</a>       def create_message(item)</pre></td>
+            <td><pre><a name="line94">94</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line101">101</a>         # Extract tweet identifier</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line102">102</a>         m, id = *item.trackback_permalink.match(/(\d+)$/)</pre></td>
+            <td><pre><a name="line95">95</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line103">103</a>         </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line104">104</a>         message = Grapevine::Message.new()</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line105">105</a>         message.source     = name</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line106">106</a>         message.source_id  = id</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line107">107</a>         message.author     = item.trackback_author_nick</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line108">108</a>         message.url        = item.url</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line109">109</a>         message.content    = item.content</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line110">110</a>         message.created_at = Time.at(item.trackback_date)</pre></td>
+            <td><pre><a name="line96">96</a>       ##########################################################################</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line111">111</a>         </pre></td>
+            <td><pre><a name="line97">97</a>       # Protected Methods</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line98">98</a>       ##########################################################################</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line99">99</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line112">112</a>         return message</pre></td>
+            <td><pre><a name="line100">100</a>       protected</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line113">113</a>       end</pre></td>
+            <td><pre><a name="line101">101</a>       </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line114">114</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line115">115</a>       # Creates a topic from a message</pre></td>
+            <td><pre><a name="line102">102</a>       # Creates a message from a tweet.</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line116">116</a>       def create_topic(message, url=nil)</pre></td>
+            <td><pre><a name="line103">103</a>       def create_message(item)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line104">104</a>         # Extract tweet identifier</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line117">117</a>         url ||= message.url</pre></td>
+            <td><pre><a name="line105">105</a>         m, id = *item.trackback_permalink.match(/(\d+)$/)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line118">118</a>         </pre></td>
+            <td><pre><a name="line106">106</a>         </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line119">119</a>         topic = Grapevine::Topic.first(:url =&gt; url)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line120">120</a>         </pre></td>
+            <td><pre><a name="line107">107</a>         message = Grapevine::Message.new()</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line121">121</a>         if topic.nil?</pre></td>
+            <td><pre><a name="line108">108</a>         message.source     = name</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line122">122</a>           topic = Grapevine::Topic.new(:source =&gt; name, :url =&gt; url)</pre></td>
+            <td><pre><a name="line109">109</a>         message.source_id  = id</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line123">123</a>           set_topic_name(topic)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line124">124</a>           </pre></td>
+            <td><pre><a name="line110">110</a>         message.author     = item.trackback_author_nick</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line125">125</a>           Grapevine.log.debug &quot;#{topic.errors.full_messages.join(',')}&quot; unless topic.valid?</pre></td>
+            <td><pre><a name="line111">111</a>         message.url        = item.url</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line126">126</a>           topic.save</pre></td>
+            <td><pre><a name="line112">112</a>         message.content    = item.content</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line127">127</a>           Grapevine.log.debug &quot;Added topic: #{topic.name}&quot;</pre></td>
+            <td><pre><a name="line113">113</a>         message.created_at = Time.at(item.trackback_date)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line128">128</a>         end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line129">129</a>         </pre></td>
+            <td><pre><a name="line114">114</a>         </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line130">130</a>         return topic</pre></td>
+            <td><pre><a name="line115">115</a>         return message</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line131">131</a>       end</pre></td>
+            <td><pre><a name="line116">116</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line132">132</a> </pre></td>
+            <td><pre><a name="line117">117</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line133">133</a>       # Generates a topic name</pre></td>
+            <td><pre><a name="line118">118</a>       # Creates a topic from a message</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line134">134</a>       def set_topic_name(topic)</pre></td>
+            <td><pre><a name="line119">119</a>       def create_topic(message, url=nil)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line135">135</a>         topic_name = ''</pre></td>
+            <td><pre><a name="line120">120</a>         url ||= message.url</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line136">136</a>         </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line137">137</a>         # Find topic name from the title of the URL</pre></td>
+            <td><pre><a name="line121">121</a>         </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line138">138</a>         open(topic.url) do |f|</pre></td>
+            <td><pre><a name="line122">122</a>         topic = Grapevine::Topic.first(:url =&gt; url)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line123">123</a>         </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line139">139</a>           m, topic_name = *f.read.match(/&lt;title&gt;(.+?)&lt;\/title&gt;/)</pre></td>
+            <td><pre><a name="line124">124</a>         if topic.nil?</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line140">140</a>           topic_name ||= '&lt;unknown&gt;'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line141">141</a>         end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line142">142</a> </pre></td>
+            <td><pre><a name="line125">125</a>           topic = Grapevine::Topic.new(:source =&gt; name, :url =&gt; url)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line143">143</a>         topic.name = topic_name[0..250]</pre></td>
+            <td><pre><a name="line126">126</a>           set_topic_name(topic)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line144">144</a>       end</pre></td>
+            <td><pre><a name="line127">127</a>           </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line128">128</a>           Grapevine.log.debug &quot;#{topic.errors.full_messages.join(',')}&quot; unless topic.valid?</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line129">129</a>           topic.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line130">130</a>           Grapevine.log.debug &quot;TOPIC: #{topic.name}&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line145">145</a>     end</pre></td>
+            <td><pre><a name="line131">131</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line146">146</a>   end</pre></td>
+            <td><pre><a name="line132">132</a>         </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line133">133</a>         return topic</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line147">147</a> end</pre></td>
+            <td><pre><a name="line134">134</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line135">135</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line136">136</a>       # Generates a topic name</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line137">137</a>       def set_topic_name(topic)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line138">138</a>         topic_name = ''</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line139">139</a>         </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line140">140</a>         # Find topic name from the title of the URL</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line141">141</a>         open(topic.url) do |f|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line142">142</a>           m, topic_name = *f.read.match(/&lt;title&gt;(.+?)&lt;\/title&gt;/)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line143">143</a>           topic_name ||= '&lt;unknown&gt;'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line144">144</a>         end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line145">145</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line146">146</a>         topic.name = topic_name[0..250]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line147">147</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line148">148</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line149">149</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line150">150</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Thu Mar 03 08:09:59 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Fri Mar 04 10:21:37 -0700 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>
