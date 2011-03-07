@@ -226,6 +226,10 @@ command :'show topic' do |c|
 end
 
 
+################################################################################
+# Messages
+################################################################################
+
 command :'show messages' do |c|
   c.syntax = 'grapevine show messages [options]'
   c.description = 'Displays the messages in the database.'
@@ -248,6 +252,37 @@ command :'show messages' do |c|
     end
   end
 end
+
+
+################################################################################
+# Tags
+################################################################################
+
+command :'show tags' do |c|
+  c.syntax = 'grapevine show tags'
+  c.description = 'Displays a list of all tags in the database.'
+  c.when_called do|args, options|
+    tags = repository.adapter.select('SELECT type, value, COUNT(DISTINCT topic_id) topic_count FROM grapevine_tags GROUP BY type, value ORDER BY COUNT(DISTINCT topic_id) DESC')
+    
+    if tags.length == 0
+      say "No tags exist in the database."
+    else
+      tbl = table do |t|
+        t.headings = 'Type', 'Value', 'Topics'
+        tags.each do |tag|
+          t << [tag.type, tag.value, tag.topic_count]
+        end
+      end
+      
+      puts tbl
+    end
+  end
+end
+
+
+################################################################################
+# Database Maintenance
+################################################################################
 
 command :clean do |c|
   c.syntax = 'grapevine clean'

@@ -79,8 +79,12 @@ module Grapevine
               end
             end
           end
+        rescue Octopi::APIError => e
+          # If there was a problem with the API, we'll try again next time.
+        rescue Octopi::NotFound => e
+          # If not found, it's probably private or mispelled
         rescue Exception => e
-          Grapevine.log.error(e.to_s)
+          Grapevine.log_error("GitHub API (#{name})", e)
         end
         
         return topic
@@ -101,7 +105,7 @@ module Grapevine
 
       # Parses a GitHub URL and extracts repo information
       def extract_repo_info(url)
-        m, username, repo_name = *url.match(/^https?:\/\/(?:www.)?github.com\/([^\/]+)\/([^\/]+)/i)
+        m, username, repo_name = *url.match(/^https?:\/\/(?:www.)?github.com\/([^\/]+)\/([^\/#?]+)/i)
         return (m ? [username, repo_name] : nil)
       end
 

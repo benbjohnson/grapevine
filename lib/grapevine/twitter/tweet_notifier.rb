@@ -73,7 +73,7 @@ module Grapevine
         end
 
         # Limit description length
-        description = topic.description
+        description = topic.description || ''
         max_length = 140 - topic.name.length - url.length - username.length - 10
         if description.length > max_length
           # Try to cut off at the last space if possible

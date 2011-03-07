@@ -49,7 +49,11 @@ module Grapevine
         duplicate_count = 0
         
         begin
-          results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
+          begin
+            results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
+          rescue Topsy::InformTopsy => e
+            # Grapevine.log_error("Topsy Search (#{name})", e)
+          end
         
           # Loop over links and load trackbacks for each one
           results.list.each do |item|

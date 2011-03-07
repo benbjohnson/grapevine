@@ -34,9 +34,20 @@ module Grapevine
   def self.log
     if @log.nil?
       @log = Log4r::Logger.new('')
-      @log.outputters = Log4r::Outputter.stdout
+      @log.outputters = [
+        Log4r::FileOutputter.new(
+          'error_log',
+          :level => Log4r::ERROR,
+          :filename => File.expand_path('~/grapevine.log')
+        ),
+        Log4r::Outputter.stdout
+      ]
     end
     
     return @log
+  end
+
+  def self.log_error(message, error)
+    log.error "#{message}: #{error.inspect}\n#{error.backtrace}"
   end
 end

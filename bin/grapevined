@@ -28,12 +28,20 @@ Daemons.run_proc('grapevined') do
   loop do
     # Run all registry loaders
     registry.loaders.each do |loader|
-      loader.load()
+      begin
+        loader.load()
+      rescue StandardError => e
+        Grapevine.log_error("Loader (#{loader.name})", e)
+      end
     end
 
     # Run all registry notifiers
     registry.notifiers.each do |notifier|
-      notifier.send()
+      begin
+        notifier.send()
+      rescue StandardError => e
+        Grapevine.log_error("Notifier (#{notifier.name})", e)
+      end
     end
 
     sleep(30)
