@@ -28,15 +28,15 @@ describe Grapevine::Notifier do
     @t0 = create_topic('foo', 'http://github.com/benbjohnson/smeagol')
     @t1 = create_topic('bar', 'http://github.com/benbjohnson/mockdown')
     
-    Grapevine::Message.create(:topic => @t0)
-    Grapevine::Message.create(:topic => @t0)
-    Grapevine::Message.create(:topic => @t1)
-    Grapevine::Message.create(:topic => @t1)
-    Grapevine::Message.create(:topic => @t1)
+    Message.create(:topic => @t0)
+    Message.create(:topic => @t0)
+    Message.create(:topic => @t1)
+    Message.create(:topic => @t1)
+    Message.create(:topic => @t1)
   end
 
   def create_topic(name, url)
-    Grapevine::Topic.create(:source => 'twitter-github', :name => 'foo', :url => url, :created_at => Time.now)
+    Topic.create(:source => 'twitter-github', :name => 'foo', :url => url, :created_at => Time.now)
   end
 
 

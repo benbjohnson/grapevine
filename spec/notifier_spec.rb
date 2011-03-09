@@ -29,19 +29,19 @@ describe Grapevine::Notifier do
   end
 
   def create_topic(name)
-    Grapevine::Topic.create(:source => 'twitter-github', :name => 'foo', :created_at => Time.now)
+    Topic.create(:source => 'twitter-github', :name => 'foo', :created_at => Time.now)
   end
 
   def create_message(topic)
-    Grapevine::Message.create(:topic => topic)
+    Message.create(:topic => topic)
   end
 
   def create_tag(topic, type, value)
-    Grapevine::Tag.create(:topic => topic, :type => type, :value => value)
+    Tag.create(:topic => topic, :type => type, :value => value)
   end
 
   def create_notification(topic, source, created_at)
-    Grapevine::Notification.create(:topic => topic, :source => source, :created_at => created_at)
+    Notification.create(:topic => topic, :source => source, :created_at => created_at)
   end
 
 

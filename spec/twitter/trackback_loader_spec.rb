@@ -43,7 +43,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     
     @loader.load()
     
-    messages = Grapevine::Message.all
+    messages = Message.all
     messages.length.should == 1
     message = *messages
     message.source.should    == 'my_loader'
@@ -64,7 +64,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     @loader.per_page = 2
     @loader.load()
     
-    Grapevine::Message.all.length.should == 4
+    Message.all.length.should == 4
   end
 
   it 'should not load messages that have already been loaded' do
@@ -77,11 +77,11 @@ describe Grapevine::Twitter::TrackbackLoader do
     FakeWeb.register_uri(:get, "https://github.com/marak/session.js", :body => '')
     register_topsy_search_uri('site_github')
     @loader.load()
-    Grapevine::Message.all.length.should == 7
+    Message.all.length.should == 7
 
     register_topsy_search_uri('site_github_later')
     @loader.load()
-    Grapevine::Message.all.length.should == 9
+    Message.all.length.should == 9
   end
 
 
@@ -95,7 +95,7 @@ describe Grapevine::Twitter::TrackbackLoader do
     @loader.site = 'stackoverflow.com'
     @loader.load()
     
-    topics = Grapevine::Topic.all
+    topics = Topic.all
     topics.length.should == 1
     topic = *topics
     topic.source.should == 'my_loader'

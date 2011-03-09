@@ -46,7 +46,7 @@ module Grapevine
         # Wait at least the number of seconds specified in frequency before
         # sending another notification
         if !force && !frequency.nil? && frequency > 0
-          notification = Grapevine::Notification.first(
+          notification = Notification.first(
             :source => self.name,
             :order => :created_at.desc
           )
@@ -89,7 +89,7 @@ module Grapevine
         client.update(content);
         
         # Log notification
-        Grapevine::Notification.create(
+        Notification.create(
           :topic => topic,
           :source => name,
           :content => content,

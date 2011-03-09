@@ -94,11 +94,11 @@ module Grapevine
     # A list of the most popular topics.
     def popular_topics
       topics = []
-      results = repository.adapter.select('SELECT t.id, t.name, COUNT(*) count FROM grapevine_topics t INNER JOIN grapevine_messages m ON t.id = m.topic_id GROUP BY t.id ORDER BY COUNT(*) DESC')
+      results = repository.adapter.select('SELECT t.id, t.name, COUNT(*) count FROM topics t INNER JOIN messages m ON t.id = m.topic_id GROUP BY t.id ORDER BY COUNT(*) DESC')
       
       # Loop over aggregate results
       results.each do |result|
-        topic = Grapevine::Topic.get(result.id)
+        topic = Topic.get(result.id)
         
         # Skip topic if it has been notified within the window
         notification = *topic.notifications(:source => name, :order => :created_at.desc)

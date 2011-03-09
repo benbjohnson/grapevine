@@ -54,7 +54,7 @@ module Grapevine
         url = create_base_url(username, repo_name)
         
         # Do not create topic if is a duplicate from an author.
-        topic = Grapevine::Topic.first(:url => url)
+        topic = Topic.first(:url => url)
         if topic && topic.messages(:author => message.author).length > 0
           return
         end
@@ -71,7 +71,7 @@ module Grapevine
             get_repository_language_tags(repo).each do |language|
               # Don't create duplicate tags
               if topic.tags(:type => 'language', :value => language).length == 0
-                tag = Grapevine::Tag.create(
+                tag = Tag.create(
                   :topic => topic,
                   :type  => 'language',
                   :value => language

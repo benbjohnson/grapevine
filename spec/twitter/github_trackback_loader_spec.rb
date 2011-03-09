@@ -52,8 +52,8 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     
     @loader.load()
     
-    Grapevine::Message.all.length.should == 1
-    message = Grapevine::Message.first
+    Message.all.length.should == 1
+    message = Message.first
     message.source.should    == 'my-github-loader'
     message.source_id.should == '23909517578211328'
     message.author.should    == 'coplusk'
@@ -64,7 +64,7 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     register_topsy_search_uri('site_github_nonproject')
     
     @loader.load()
-    Grapevine::Message.all.length.should == 0
+    Message.all.length.should == 0
   end
 
 
@@ -79,8 +79,8 @@ describe Grapevine::Twitter::GitHubTrackbackLoader do
     register_github_repo_language_uri('tomwaddington', 'suggestedshare', 'tomwaddington_suggestedshare')
     @loader.load()
     
-    Grapevine::Topic.all.length.should == 1
-    topic = Grapevine::Topic.first
+    Topic.all.length.should == 1
+    topic = Topic.first
     topic.source.should == 'my-github-loader'
     topic.name.should == 'suggestedshare'
     topic.description.should == 'Share content on Facebook with like-minded friends'

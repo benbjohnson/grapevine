@@ -62,7 +62,7 @@ module Grapevine
             
             if !message.nil?
               # Skip message if it's a duplicate
-              if Grapevine::Message.first(:source_id => message.source_id)
+              if Message.first(:source_id => message.source_id)
                 duplicate_count += 1
                 
                 # Exit if we've encountered too many duplicates
@@ -84,7 +84,7 @@ module Grapevine
               end
               
               # Only count tweets from an author once
-              if Grapevine::Message.first(:topic => topic, :author => message.author)
+              if Message.first(:topic => topic, :author => message.author)
                 next
               end
 
@@ -112,7 +112,7 @@ module Grapevine
         # Extract tweet identifier
         m, id = *item.trackback_permalink.match(/(\d+)$/)
         
-        message = Grapevine::Message.new()
+        message = Message.new()
         message.source     = name
         message.source_id  = id
         message.author     = item.trackback_author_nick
@@ -127,10 +127,10 @@ module Grapevine
       def create_topic(message, url=nil)
         url ||= message.url
         
-        topic = Grapevine::Topic.first(:url => url)
+        topic = Topic.first(:url => url)
         
         if topic.nil?
-          topic = Grapevine::Topic.new(:source => name, :url => url)
+          topic = Topic.new(:source => name, :url => url)
           set_topic_name(topic)
           
           Grapevine.log.debug "#{topic.errors.full_messages.join(',')}" unless topic.valid?

@@ -121,7 +121,7 @@ command :'show notifier' do |c|
     raise "Notifier not found: #{name}" if notifier.nil?
     
     topics = notifier.popular_topics
-    notifications = Grapevine::Notification.all(:source => name)
+    notifications = Notification.all(:source => name)
     
     puts "Name:       #{notifier.name}"
     puts "Source:     #{notifier.source}"
@@ -153,7 +153,7 @@ command :'clear notifications' do |c|
     name = *args
     raise 'Notifier name is required' if name.nil?
     
-    notifications = Grapevine::Notification.all(:source => name)
+    notifications = Notification.all(:source => name)
     count = notifications.length
     notifications.destroy
     puts "#{notifications.length} notifications were removed."
@@ -170,7 +170,7 @@ command :'show topics' do |c|
   c.description = 'Displays the topics in the database.'
   c.option '--tag TAG', String, 'Filters the topics by tag.'
   c.when_called do|args, options|
-    topics = Grapevine::Topic.all
+    topics = Topic.all
     tag = options.tag
     
     if topics.length == 0
@@ -205,7 +205,7 @@ command :'show topic' do |c|
   c.when_called do|args, options|
     name = *args
     raise 'Topic name is required' if name.nil?
-    topic = Grapevine::Topic.first(:name => name)
+    topic = Topic.first(:name => name)
     raise "Topic not found: #{name}" if topic.nil?
     
     puts "Name: #{topic.name}"
@@ -238,7 +238,7 @@ command :'show messages' do |c|
   c.when_called do|args, options|
     filter = {}
     filter.merge!(:topic_id => options.topic_id.to_i) if options.topic_id
-    messages = Grapevine::Message.all(filter)
+    messages = Message.all(filter)
     
     if messages.length > 0
       user_table = table do |t|
@@ -262,7 +262,7 @@ command :'show tags' do |c|
   c.syntax = 'grapevine show tags'
   c.description = 'Displays a list of all tags in the database.'
   c.when_called do|args, options|
-    tags = repository.adapter.select('SELECT type, value, COUNT(DISTINCT topic_id) topic_count FROM grapevine_tags GROUP BY type, value ORDER BY COUNT(DISTINCT topic_id) DESC')
+    tags = repository.adapter.select('SELECT type, value, COUNT(DISTINCT topic_id) topic_count FROM tags GROUP BY type, value ORDER BY COUNT(DISTINCT topic_id) DESC')
     
     if tags.length == 0
       say "No tags exist in the database."
