@@ -52,7 +52,7 @@ module Grapevine
           begin
             results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
           rescue Topsy::InformTopsy => e
-            # Grapevine.log_error("Topsy Search (#{name})", e)
+            Grapevine.log_error("Topsy Search (#{name})")
           end
         
           # Loop over links and load trackbacks for each one
@@ -61,8 +61,8 @@ module Grapevine
             message = create_message(item)
             
             if !message.nil?
-              # Skip message if it's a duplicate
-              if Message.first(:source_id => message.source_id)
+              # Skip message from a user if it's a duplicate
+              if Message.first(:author => message.author, :content => message.content)
                 duplicate_count += 1
                 
                 # Exit if we've encountered too many duplicates
@@ -85,6 +85,7 @@ module Grapevine
               
               # Only count tweets from an author once
               if Message.first(:topic => topic, :author => message.author)
+                Grapevine.log.debug("  first")
                 next
               end
 

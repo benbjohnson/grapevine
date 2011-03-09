@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    grapevine (0.1.0)
+    grapevine (0.2.0)
       OptionParser (~> 0.5.1)
       bitly (~> 0.6.1)
       commander (~> 4.0.3)
@@ -15,6 +15,7 @@ PATH
       terminal-table (~> 1.4.2)
       topsy (~> 0.3.4)
       twitter (~> 1.1.1)
+      unindentable (~> 0.1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -145,4 +146,3 @@ DEPENDENCIES
   rcov (~> 0.9.9)
   rspec (~> 2.4.0)
   timecop (~> 0.3.5)
-  unindentable (~> 0.1.0)

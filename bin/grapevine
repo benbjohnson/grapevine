@@ -9,6 +9,10 @@ require 'grapevine/setup'
 require 'commander/import'
 require 'terminal-table/import'
 
+# FOR TESTING
+# require 'http/wiretap'
+# HTTP::Wiretap.start()
+
 program :name, 'Grapevine'
 program :version, Grapevine::VERSION
 program :description, 'A simple message aggregator.'
