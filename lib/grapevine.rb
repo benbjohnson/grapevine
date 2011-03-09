@@ -12,6 +12,7 @@ require 'octopi'
 require 'twitter'
 require 'bitly'
 require 'slowweb'
+require 'unindentable'
 
 require 'grapevine/ext/date'
 require 'grapevine/ext/hash'
