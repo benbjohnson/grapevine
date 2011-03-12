@@ -109,10 +109,11 @@ module Grapevine
       # Loop over aggregate results
       topics.each do |topic|
         # Remove topic if it has been notified within the window
-        notification = *topic.notifications(:source => name, :order => :created_at.desc)
+        notification = topic.notifications.first(:source => name, :order => :created_at.desc)
+        
         if notification
           elapsed = Time.now-Time.parse(notification.created_at.to_s)
-          if elapsed < window
+          if elapsed > window
             topics.delete(topic)
           end
         end

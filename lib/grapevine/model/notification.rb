@@ -3,7 +3,7 @@ class Notification
   belongs_to :topic
 
   property :id,         Serial
-  property :source,     String
+  property :source,     String, :index => true
   property :content,    Text, :length => 65535
   property :created_at, DateTime
 
