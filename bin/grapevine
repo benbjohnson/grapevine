@@ -293,7 +293,10 @@ command :info do |c|
   c.description = 'Displays information about the contents of the database.'
   c.when_called do|args, options|
     puts "Database: #{Grapevine::Config.database}"
-    puts "Topics: #{Topic.all().length}"
+    puts "Topics: #{Topic.all.length}"
+    puts "Messages: #{Message.all.length}"
+    puts "Tags: #{Tag.all.length}"
+    puts "Notifications: #{Notification.all.length}"
   end
 end
 
