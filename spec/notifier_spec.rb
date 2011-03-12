@@ -37,7 +37,7 @@ describe Grapevine::Notifier do
   end
 
   def create_tag(topic, type, value)
-    Tag.create(:topic => topic, :type => type, :value => value)
+    topic.tags.create(:type => type, :value => value)
   end
 
   def create_notification(topic, source, created_at)

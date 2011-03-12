@@ -267,7 +267,7 @@ command :'show tags' do |c|
   c.syntax = 'grapevine show tags'
   c.description = 'Displays a list of all tags in the database.'
   c.when_called do|args, options|
-    tags = repository.adapter.select('SELECT type, value, COUNT(DISTINCT topic_id) topic_count FROM tags GROUP BY type, value ORDER BY COUNT(DISTINCT topic_id) DESC')
+    tags = Tag.all(:order => [:type, :value])
     
     if tags.length == 0
       say "No tags exist in the database."
@@ -275,10 +275,9 @@ command :'show tags' do |c|
       tbl = table do |t|
         t.headings = 'Type', 'Value', 'Topics'
         tags.each do |tag|
-          t << [tag.type, tag.value, tag.topic_count]
+          t << [tag.type, tag.value, tag.topics.length]
         end
       end
-      
       puts tbl
     end
   end

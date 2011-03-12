@@ -93,35 +93,35 @@ module Grapevine
     
     # A list of the most popular topics.
     def popular_topics
+      # Retrieve a union of topics based on tags
       topics = []
-      results = repository.adapter.select('SELECT t.id, t.name, COUNT(*) count FROM topics t INNER JOIN messages m ON t.id = m.topic_id GROUP BY t.id ORDER BY COUNT(*) DESC')
+      if tags && tags.length > 0
+        tags.each do |tag|
+          m, tag_type, tag_value = *tag.match(/^(\w+):(.+)$/)
+          db_tag = Tag.first(:type => tag_type, :value => tag_value)
+          topics |= db_tag.topics
+        end
+      # If no tags are specified, use all topics
+      else
+        topics = Topic.all
+      end
       
       # Loop over aggregate results
-      results.each do |result|
-        topic = Topic.get(result.id)
-        
-        # Skip topic if it has been notified within the window
+      topics.each do |topic|
+        # Remove topic if it has been notified within the window
         notification = *topic.notifications(:source => name, :order => :created_at.desc)
-        next if notification && Time.now-Time.parse(notification.created_at.to_s) < window
-
-        # Skip topic if it doesn't contain any of the filtered tags
-        if tags && tags.length > 0
-          found = false
-          tags.each do |tag|
-            m, tag_type, tag_value = *tag.match(/^(\w+):(.+)$/)
-            
-            if topic.tags(:type => tag_type, :value => tag_value).length > 0
-              found = true
-              break
-            end
+        if notification
+          elapsed = Time.now-Time.parse(notification.created_at.to_s)
+          if elapsed < window
+            topics.delete(topic)
           end
-          next unless found
         end
-        
-        # If validations have all passed, add the topic to the list
-        topics << topic
       end
 
+      # Sort topics by popularity
+      topics = topics.sort! {|x,y| x.messages.length <=> y.messages.length}
+      topics.reverse!
+      
       return topics
     end
   end

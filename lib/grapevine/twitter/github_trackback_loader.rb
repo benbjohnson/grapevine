@@ -71,8 +71,7 @@ module Grapevine
             get_repository_language_tags(repo).each do |language|
               # Don't create duplicate tags
               if topic.tags(:type => 'language', :value => language).length == 0
-                tag = Tag.create(
-                  :topic => topic,
+                tag = topic.tags.create(
                   :type  => 'language',
                   :value => language
                 )

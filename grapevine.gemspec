@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('fakeweb', '~> 1.3.0')
   s.add_development_dependency('timecop', '~> 0.3.5')
   s.add_development_dependency('rcov', '~> 0.9.9')
+  s.add_development_dependency('dm-sqlite-adapter', '~> 1.0.2')
 
   s.test_files   = Dir.glob('test/**/*')
   s.files        = Dir.glob('lib/**/*') + %w(README.md)
