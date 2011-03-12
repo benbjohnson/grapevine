@@ -1,6 +1,7 @@
 class Tag
   include ::DataMapper::Resource
-  belongs_to :topic
+  has n, :topic_tags
+  has n, :topics, :through => :topic_tags
 
   property :id,    Serial
   property :type,  String

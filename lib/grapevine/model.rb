@@ -5,6 +5,7 @@ DataMapper::Property::Boolean.allow_nil(false)
 
 require 'grapevine/model/topic'
 require 'grapevine/model/tag'
+require 'grapevine/model/topic_tag'
 require 'grapevine/model/notification'
 require 'grapevine/model/message'
 
