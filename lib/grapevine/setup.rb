@@ -1,4 +1,3 @@
 # Setup DataMapper
-db = File.expand_path('~/grapevine.db')
-DataMapper.setup(:default, "sqlite://#{db}")
+DataMapper.setup(:default, Grapevine::Config.database)
 DataMapper.auto_upgrade!

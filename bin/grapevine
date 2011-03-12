@@ -5,7 +5,6 @@ $:.unshift(File.join(dir, '..', 'lib'))
 
 require 'rubygems'
 require 'grapevine'
-require 'grapevine/setup'
 require 'commander/import'
 require 'terminal-table/import'
 
@@ -34,6 +33,8 @@ Grapevine::Config.load_file()
 # Create a registry of all loaders and notifiers
 registry = Grapevine::Registry.new()
 registry.load_config()
+
+require 'grapevine/setup'
 
 
 ################################################################################
@@ -287,6 +288,15 @@ end
 ################################################################################
 # Database Maintenance
 ################################################################################
+
+command :info do |c|
+  c.syntax = 'grapevine info'
+  c.description = 'Displays information about the contents of the database.'
+  c.when_called do|args, options|
+    puts "Database: #{Grapevine::Config.database}"
+    puts "Topics: #{Topic.all().length}"
+  end
+end
 
 command :clean do |c|
   c.syntax = 'grapevine clean'

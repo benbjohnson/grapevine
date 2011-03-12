@@ -6,7 +6,6 @@ $:.unshift(File.join(dir, '..', 'lib'))
 require 'rubygems'
 require 'daemons'
 require 'grapevine'
-require 'grapevine/setup'
 
 # Catch CTRL-C and exit cleanly
 trap("INT") do
@@ -14,14 +13,16 @@ trap("INT") do
   exit()
 end
 
-Daemons.run_proc('grapevined') do
-  # Load configuration properties
-  Grapevine::Config.load_file()
+# Load configuration properties
+Grapevine::Config.load_file()
 
-  # Create a registry of all loaders and notifiers
-  registry = Grapevine::Registry.new()
-  registry.load_config()
-  
+# Create a registry of all loaders and notifiers
+registry = Grapevine::Registry.new()
+registry.load_config()
+
+require 'grapevine/setup'
+
+Daemons.run_proc('grapevined') do
   Grapevine.log.debug("Loaders: #{registry.loaders.length}")
   Grapevine.log.debug("Notifiers: #{registry.notifiers.length}")
 

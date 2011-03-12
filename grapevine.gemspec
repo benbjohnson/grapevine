@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency('OptionParser', '~> 0.5.1')
   s.add_dependency('daemons', '~> 1.1.0')
   s.add_dependency('data_mapper', '~> 1.0.2')
-  s.add_dependency('dm-sqlite-adapter', '~> 1.0.2')
   s.add_dependency('topsy', '~> 0.3.4')
   s.add_dependency('octopi', '~> 0.4.0')
   s.add_dependency('bitly', '~> 0.6.1')
