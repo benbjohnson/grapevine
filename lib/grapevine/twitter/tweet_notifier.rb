@@ -39,10 +39,32 @@ module Grapevine
       # Public Methods
       ##########################################################################
 
+      # The current state of the notifier. Will be "ready" if it is ready to
+      # send a notification or "waiting" if the specified frequency has not
+      # elapsed since the last notification.
+      def state
+        if !frequency.nil? && frequency > 0
+          notification = Notification.first(
+            :source => self.name,
+            :order => :created_at.desc
+          )
+
+          elapsed = Time.now-Time.parse(notification.created_at.to_s)
+          if notification && elapsed < frequency
+            return 'waiting'
+          end
+        end
+        
+        return 'ready'
+      end
+
       # Sends a notification for the most popular topic.
       def send(options={})
         force = options[:force]
         
+        # Wait if the nofifier is not ready
+        return if !force && state == 'waiting'
+          
         # Wait at least the number of seconds specified in frequency before
         # sending another notification
         if !force && !frequency.nil? && frequency > 0

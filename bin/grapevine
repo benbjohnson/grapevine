@@ -133,19 +133,12 @@ command :'show notifier' do |c|
     puts "Frequency:  #{notifier.frequency}s"
     puts "Window:     #{notifier.window }s"
     puts "Tags:       #{notifier.tags.join(',')}"
+    puts "State:      #{notifier.state}"
     puts ""
     puts "Popular Topics (#{topics.length})"
     topics[0..9].each_index do |index|
       topic = topics[index]
       puts "#{index+1}. #{topic.name}"
-    end
-    puts ""
-    puts "Recent Notifications (#{notifications.length})"
-    notifications[0..9].each_index do |index|
-      notification = notifications[index]
-      puts "#{index+1}. #{notification.created_at}"
-      puts notification.content
-      puts ""
     end
     puts ""
   end

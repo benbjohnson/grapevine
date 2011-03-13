@@ -107,18 +107,23 @@ module Grapevine
       end
       
       # Loop over aggregate results
+      arr = []
       topics.each do |topic|
         # Remove topic if it has been notified within the window
         notification = topic.notifications.first(:source => name, :order => :created_at.desc)
         
         if notification
           elapsed = Time.now-Time.parse(notification.created_at.to_s)
-          if elapsed > window
-            topics.delete(topic)
+          if elapsed < window
+            next
           end
         end
-      end
 
+        # Add topics to new array
+        arr << topic
+      end
+      topics = arr
+      
       # Sort topics by popularity
       topics = topics.sort! {|x,y| x.messages.length <=> y.messages.length}
       topics.reverse!
