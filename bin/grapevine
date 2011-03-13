@@ -138,7 +138,7 @@ command :'show notifier' do |c|
     puts "Popular Topics (#{topics.length})"
     topics[0..9].each_index do |index|
       topic = topics[index]
-      puts "#{index+1}. #{topic.name}"
+      puts "#{index+1}. #{topic.name} (#{topic.messages.length} msgs)"
     end
     puts ""
   end
