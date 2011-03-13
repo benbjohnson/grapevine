@@ -1,3 +1,7 @@
+v0.3.1
+* Add number of messages to topics on 'show notifier'.
+* Fix window bugs.
+
 v0.3.0
 * Add option to use alternative SQL adapters: MySQL, Postgres, SQLite, etc.
 * Refactor topic & tag model for improved performance.
