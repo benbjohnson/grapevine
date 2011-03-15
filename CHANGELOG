@@ -1,3 +1,6 @@
+v0.3.3
+* Add grapevined to gemspec under list of executables.
+
 v0.3.2
 * Add error handler for bad request errors from Twitter. Can be caused by
   invalid Unicode characters being sent.

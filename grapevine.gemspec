@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = ['benbjohnson@yahoo.com']
   s.homepage    = 'http://github.com/benbjohnson/grapevine'
   s.summary     = 'Message aggregator'
-  s.executables = ['grapevine']
+  s.executables = ['grapevine', 'grapevined']
   s.default_executable = 'grapevine'
 
   s.add_dependency('rack', '= 1.2.0')
