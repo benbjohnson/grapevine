@@ -16,6 +16,13 @@ To install Grapevine, simply install the gem:
 
 	$ [sudo] gem install grapevine
 
+And then install the DataMapper adapter you'll be using. By default, Grapevine
+will use a SQLite3 database at `~/grapevine.db`. You can change this in the
+configuration file.
+
+	$ gem install dm-sqlite-adapter
+	$ gem install dm-mysql-adapter
+
 Then run the `grapevine` command to manage your server.
 
 	$ grapevine start
@@ -66,6 +73,8 @@ Twitter API consumer keys are listed at the top.
 
 The following is an example configuration file:
 
+	database: mysql://user@pass:localhost/my_grapevine_db
+	
 	bitly_username: johndoe
 	bitly_api_key: R_ae81e4e8ef7d10728725a57e90e1933
 
