@@ -1,3 +1,7 @@
+v0.3.2
+* Add error handler for bad request errors from Twitter. Can be caused by
+  invalid Unicode characters being sent.
+
 v0.3.1
 * Add number of messages to topics on 'show notifier'.
 * Fix window bugs.
