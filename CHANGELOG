@@ -1,3 +1,7 @@
+v0.3.4
+* Fix Topsy error logging.
+* Fix DataMapper Text default bug.
+
 v0.3.3
 * Add grapevined to gemspec under list of executables.
 
