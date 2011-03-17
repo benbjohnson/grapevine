@@ -48,7 +48,11 @@ module Grapevine
     return @log
   end
 
-  def self.log_error(message, error)
-    log.error "#{message}: #{error.inspect}\n#{error.backtrace}"
+  def self.log_error(message, error=nil)
+    if error.nil?
+      log.error "#{message}"
+    else
+      log.error "#{message}: #{error.inspect}\n#{error.backtrace}"
+    end
   end
 end
