@@ -1,6 +1,7 @@
 DataMapper::Model.raise_on_save_failure = true
 
 DataMapper::Property::String.length(255)
+DataMapper::Property::Text.length(65535)
 DataMapper::Property::Boolean.allow_nil(false)
 
 require 'grapevine/model/topic'
