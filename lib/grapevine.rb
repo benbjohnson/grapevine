@@ -49,10 +49,14 @@ module Grapevine
   end
 
   def self.log_error(message, error=nil)
-    if error.nil?
-      log.error "#{message}"
-    else
-      log.error "#{message}: #{error.inspect}\n#{error.backtrace}"
+    begin
+      if error.nil?
+        log.error "#{message}"
+      else
+        log.error "#{message}: #{error.inspect}\n#{error.backtrace}"
+      end
+    rescue StandardError => e
+      puts "Logging error: #{e}"
     end
   end
 end

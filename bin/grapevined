@@ -22,7 +22,7 @@ registry.load_config()
 
 require 'grapevine/setup'
 
-Daemons.run_proc('grapevined') do
+Daemons.run_proc('grapevined', :log_output => true) do
   Grapevine.log.debug("Loaders: #{registry.loaders.length}")
   Grapevine.log.debug("Notifiers: #{registry.notifiers.length}")
 

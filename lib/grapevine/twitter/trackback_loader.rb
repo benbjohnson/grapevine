@@ -55,6 +55,11 @@ module Grapevine
             Grapevine.log_error("Topsy Search (#{name})")
           end
         
+          # Exit load if Topsy does not return results
+          if results.nil?
+            return
+          end
+          
           # Loop over links and load trackbacks for each one
           results.list.each do |item|
             # Create and append message
