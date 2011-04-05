@@ -1,3 +1,7 @@
+v0.3.6
+* Fix scoping of Twitter error in notifier.
+* Fixed duplicate tag issue... again.
+
 v0.3.5
 * Fix Topsy nil result error.
 * Fix Log4r error that was killing server.
