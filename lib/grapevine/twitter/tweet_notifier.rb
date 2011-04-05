@@ -110,7 +110,7 @@ module Grapevine
         client = ::Twitter::Client.new
         begin
           client.update(content);
-        rescue Twitter::BadRequest => e
+        rescue ::Twitter::BadRequest => e
           # If we have a bad Unicode character or something weird, just delete
           # the topic.
           topic.destroy()
