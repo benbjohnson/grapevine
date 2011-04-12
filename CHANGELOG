@@ -1,3 +1,6 @@
+v0.3.7
+* Upgrade Twitter gem v1.3.0.
+
 v0.3.6
 * Fix scoping of Twitter error in notifier.
 * Fixed duplicate tag issue... again.
