@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency('topsy', '~> 0.3.4')
   s.add_dependency('octopi', '~> 0.4.0')
   s.add_dependency('bitly', '~> 0.6.1')
-  s.add_dependency('twitter', '~> 1.1.1')
+  s.add_dependency('twitter', '~> 1.3.0')
   s.add_dependency('commander', '~> 4.0.3')
   s.add_dependency('terminal-table', '~> 1.4.2')
   s.add_dependency('slowweb', '~> 0.1.1')
