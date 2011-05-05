@@ -33,6 +33,7 @@ Daemons.run_proc('grapevined', :log_output => true) do
         loader.load()
       rescue StandardError => e
         Grapevine.log_error("Loader (#{loader.name})", e)
+      rescue Timeout::Error => e
       end
     end
 
@@ -42,6 +43,7 @@ Daemons.run_proc('grapevined', :log_output => true) do
         notifier.send()
       rescue StandardError => e
         Grapevine.log_error("Notifier (#{notifier.name})", e)
+      rescue Timeout::Error => e
       end
     end
 

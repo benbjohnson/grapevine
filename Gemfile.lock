@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    grapevine (0.3.6)
+    grapevine (0.3.7)
       OptionParser (~> 0.5.1)
       bitly (~> 0.6.1)
       commander (~> 4.0.3)
