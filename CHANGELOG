@@ -1,3 +1,6 @@
+v0.3.8
+* Catching and ignoring Timeout::Error interrupts.
+
 v0.3.7
 * Upgrade Twitter gem v1.3.0.
 
