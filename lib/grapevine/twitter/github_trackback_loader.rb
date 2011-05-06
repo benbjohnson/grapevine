@@ -53,12 +53,6 @@ module Grapevine
         username, repo_name = *extract_repo_info(message.url)
         url = create_base_url(username, repo_name)
         
-        # Do not create topic if is a duplicate from an author.
-        topic = Topic.first(:url => url)
-        if topic && topic.messages(:author => message.author).length > 0
-          return
-        end
-
         topic = super(message, url)
         
         # Ignore GitHub info if call fails

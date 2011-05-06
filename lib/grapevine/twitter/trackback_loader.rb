@@ -53,6 +53,8 @@ module Grapevine
             results = Topsy.search(site, :window => :realtime, :page => page, :perpage => per_page)
           rescue Topsy::InformTopsy => e
             Grapevine.log_error("Topsy Search (#{name})")
+          rescue Topsy::Unavailable => e
+            Grapevine.log_error("Topsy Unavailable (Limit: #{Topsy.rate_limit.remaining} of #{Topsy.rate_limit.limit})")
           end
         
           # Exit load if Topsy does not return results
@@ -66,8 +68,14 @@ module Grapevine
             message = create_message(item)
             
             if !message.nil?
+              # Attempt to create a topic
+              topic = create_topic(message)
+              if topic.nil?
+                next
+              end
+
               # Skip message from a user if it's a duplicate
-              if Message.first(:author => message.author, :content => message.content)
+              if Message.first(:author => message.author, :topic => topic)
                 duplicate_count += 1
                 
                 # Exit if we've encountered too many duplicates
@@ -80,18 +88,6 @@ module Grapevine
               # Reset the duplicate count if we see a new tweet
               else
                 duplicate_count = 0
-              end
-
-              # Attempt to create a topic
-              topic = create_topic(message)
-              if topic.nil?
-                next
-              end
-              
-              # Only count tweets from an author once
-              if Message.first(:topic => topic, :author => message.author)
-                Grapevine.log.debug("  first")
-                next
               end
 
               # Assign topic and save message
